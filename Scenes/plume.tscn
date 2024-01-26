@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5vboh0k8p6ac"]
+[gd_scene load_steps=8 format=3 uid="uid://b5vboh0k8p6ac"]
 
 [ext_resource type="Texture2D" uid="uid://dm7waaxf5l82m" path="res://Assets/plume.png" id="1_11rw6"]
 [ext_resource type="Script" path="res://Scenes/plume.gd" id="1_prk4g"]
@@ -16,16 +16,63 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmw1h"]
 radius = 34.9631
-height = 242.478
+height = 248.636
+
+[sub_resource type="Animation" id="Animation_3evcu"]
+resource_name = "fall"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.574349, 0.535887),
+"update": 0,
+"values": [-1.0664, -0.502655]
+}
+
+[sub_resource type="Animation" id="Animation_bu371"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sah81"]
+_data = {
+"RESET": SubResource("Animation_bu371"),
+"fall": SubResource("Animation_3evcu")
+}
 
 [node name="Plume" type="CharacterBody2D"]
 script = ExtResource("1_prk4g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19.19, -21.07)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u1467")
+flip_h = true
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -12)
-rotation = -0.994427
+rotation = 1.24267
 shape = SubResource("CapsuleShape2D_lmw1h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sah81")
+}
+autoplay = "fall"
