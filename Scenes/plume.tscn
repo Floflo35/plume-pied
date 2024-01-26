@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5vboh0k8p6ac"]
+[gd_scene load_steps=5 format=3 uid="uid://b5vboh0k8p6ac"]
 
 [ext_resource type="Texture2D" uid="uid://dm7waaxf5l82m" path="res://Assets/plume.png" id="1_11rw6"]
 [ext_resource type="Script" path="res://Scenes/plume.gd" id="1_prk4g"]
@@ -14,7 +14,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Plume" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmw1h"]
+radius = 34.9631
+height = 242.478
+
+[node name="Plume" type="CharacterBody2D"]
 script = ExtResource("1_prk4g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -22,3 +26,6 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u1467")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -12)
+rotation = -0.994427
+shape = SubResource("CapsuleShape2D_lmw1h")
