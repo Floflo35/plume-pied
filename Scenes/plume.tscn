@@ -32,7 +32,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.574349, 0.535887),
 "update": 0,
-"values": [0.169297, -0.105592]
+"values": [-1.0664, -0.502655]
 }
 
 [sub_resource type="Animation" id="Animation_bu371"]
@@ -60,12 +60,15 @@ _data = {
 script = ExtResource("1_prk4g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.01, -18.68)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u1467")
+flip_h = true
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -12)
-rotation = -0.994427
+rotation = 1.41721
 shape = SubResource("CapsuleShape2D_lmw1h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
