@@ -25,7 +25,6 @@ func jump():
 	velocity.y = jump_force
 	velocity.x = deg_to_rad(-30)
 	
-	
 func kill():
 	is_active = false
 
