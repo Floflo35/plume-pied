@@ -5,7 +5,7 @@ var plume
 var obstacles = []
 var chatouilles = []
 
-const max_score = 10
+const MAX_SCORE = 10
 var score = 5
 
 signal player_hit
@@ -30,19 +30,21 @@ func register_chatouille(node):
 func register_plume(node):
 	plume = node
 
-
-# --- accessors
-func getScore():
-	return score
-
-
 # --- events
 func obstacle_hit(node):
 	plume.hit()
 	player_hit.emit()
-	score -= 1
+	updateScore(-1)
 
 func chatouille_hit(node):
 	plume.chatouille()
 	player_chatouille.emit()
-	score += 1
+	updateScore(1)
+
+# --- 
+func updateScore(delta):
+	score = min(MAX_SCORE, max(0, score + delta))
+
+func getScore():
+	return score
+	
