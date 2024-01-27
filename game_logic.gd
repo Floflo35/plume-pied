@@ -14,7 +14,7 @@ signal player_chatouille
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 # --- regsitrations
@@ -31,12 +31,12 @@ func register_plume(node):
 	plume = node
 
 # --- events
-func obstacle_hit(node):
+func obstacle_hit(_node):
 	plume.hit()
 	player_hit.emit()
 	updateScore(-1)
 
-func chatouille_hit(node):
+func chatouille_hit(_node):
 	plume.chatouille()
 	player_chatouille.emit()
 	updateScore(1)

@@ -9,7 +9,8 @@ func _process(time_delta):
 	$score_label.text = str(GameLogic.getScore())
 	
 	var current_score = GameLogic.getPercentageScore()
-	var score_delta = current_score - $score_gauge.percentage
+	var smiley_score = $smiley.get_score()
+	var score_delta = current_score - smiley_score
 	var animated_score_delta = score_delta * score_inertia * time_delta
 	
 	#  if framerate is too low jump to desired value without exceeding it
@@ -18,6 +19,6 @@ func _process(time_delta):
 	
 	# if we're near from desired result, jump to it
 	if abs(animated_score_delta) > 0.001:
-		$score_gauge.percentage += animated_score_delta
+		$smiley.set_score(smiley_score + animated_score_delta)
 	else:
-		$score_gauge.percentage = current_score
+		$smiley.set_score(current_score)
