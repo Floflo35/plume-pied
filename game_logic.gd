@@ -8,6 +8,9 @@ var chatouilles = []
 const max_score = 10
 var score = 5
 
+signal player_hit
+signal player_chatouille
+
 func _ready():
 	pass
 
@@ -29,9 +32,11 @@ func register_plume(node):
 	
 # --- events
 func obstacle_hit(node):
-	plume.hit();
+	plume.hit()
+	player_hit.emit()
 	score -= 1
 
 func chatouille_hit(node):
-	plume.chatouille();
+	plume.chatouille()
+	player_chatouille.emit()
 	score += 1
