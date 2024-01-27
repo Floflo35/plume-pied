@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7q6cd5w2w4ie" path="res://Assets/2D-art/background.png" id="2_3nbod"]
 
 [node name="Background1" type="Node2D"]
+z_index = -1000
 position = Vector2(3625, -26)
 script = ExtResource("1_x5qp7")
 
