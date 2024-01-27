@@ -6,7 +6,7 @@ var obstacles = []
 var chatouilles = []
 
 const MAX_SCORE = 10.0
-var score = 5
+var score = 4
 
 const AUTO_DECREASE_SPEED = 0.1;
 
