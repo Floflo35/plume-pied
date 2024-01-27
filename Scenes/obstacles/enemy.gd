@@ -5,28 +5,23 @@ extends Node2D
 signal hit_player
 signal tickled
 
-var fall_anim = "jmj_fall"
+@export var base_anim = "run"
+@export var fall_anim = "jmj_fall"
 
 func _ready():
 	$AnimationPlayer.active = true
-	$AnimationPlayer.play("run")
+	$AnimationPlayer.play(base_anim)
 	
 	
 func _process(delta):
 	position.x += delta * speed
-	
 
-func _on_visible_on_screen_enabler_2d_screen_exited():
-	queue_free()
-	
-	
-	
 	
 func _on_hitbox_body_entered(body):
 	#print("ouch")
 	$Sprite/Tickle.set_deferred("monitoring", false)
 	$Sprite/Tickle.set_deferred("visible", false)
-	$Hitbox.set_deferred("monitoring", false)
+	$Sprite/Hitbox.set_deferred("monitoring", false)
 	GameLogic.obstacle_hit(body)
 
 
@@ -34,7 +29,7 @@ func _on_tickle_body_entered(body):
 	print("LOL")
 	$TickleSound.playing = true
 	$AnimationPlayer.active = true
-	$AnimationPlayer.play("jmj_fall")
+	$AnimationPlayer.play(fall_anim)
 	$Sprite/Tickle.set_deferred("monitoring", false)
 	$Sprite/Tickle.set_deferred("visible", false)
 	$Sprite/Hitbox.set_deferred("monitoring", false)

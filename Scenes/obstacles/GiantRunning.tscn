@@ -1,23 +1,31 @@
-[gd_scene load_steps=20 format=3 uid="uid://el7xrk0k0kri"]
+[gd_scene load_steps=22 format=3 uid="uid://el7xrk0k0kri"]
 
-[ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_ht07j"]
-[ext_resource type="Texture2D" uid="uid://dalkob5yhlutv" path="res://Assets/2D-art/axe.png" id="2_56f5a"]
-[ext_resource type="Texture2D" uid="uid://cfpq45w4pxnaq" path="res://Assets/2D-art/Geant_Laugh_dark.png" id="2_71t41"]
-[ext_resource type="Texture2D" uid="uid://cold2gqwmil7h" path="res://Assets/chatouilles/pizza.png" id="3_liuju"]
-[ext_resource type="Texture2D" uid="uid://bmjfllsw4rslm" path="res://Assets/2D-art/Geant_3.png" id="3_w84re"]
-[ext_resource type="Animation" uid="uid://beq5dxf4fqrvd" path="res://Assets/Animations/jmj_fall.res" id="4_qb8ad"]
-[ext_resource type="PackedScene" uid="uid://0tkcvwmir85x" path="res://Scenes/ui/halo.tscn" id="6_34xkb"]
-[ext_resource type="AudioStream" uid="uid://bnya4b1c7sjpc" path="res://Assets/SFX/PasGeant/pasGeant1.wav" id="6_dbr0o"]
-[ext_resource type="AudioStream" uid="uid://dfinugm7brwt0" path="res://Assets/SFX/PasGeant/pasGeant2.wav" id="7_8h50c"]
-[ext_resource type="AudioStream" uid="uid://bff7mabukuqfk" path="res://Assets/SFX/PasGeant/pasGeant3.wav" id="8_a53hm"]
-[ext_resource type="AudioStream" uid="uid://d3xxg7iyrqqxj" path="res://Assets/SFX/PasGeant/pasGeant4.wav" id="9_ox3ms"]
-[ext_resource type="AudioStream" uid="uid://bif30wi4xxd1l" path="res://Assets/SFX/RiresGeants/sonGeant1.wav" id="11_oqw7b"]
+[ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_f4kb5"]
+[ext_resource type="Texture2D" uid="uid://dalkob5yhlutv" path="res://Assets/2D-art/axe.png" id="2_o07l4"]
+[ext_resource type="Texture2D" uid="uid://c423plmg10uoi" path="res://Assets/2D-art/Geant_Debut_Laugh.png" id="3_6gcj0"]
+[ext_resource type="Texture2D" uid="uid://cfpq45w4pxnaq" path="res://Assets/2D-art/Geant_Laugh_dark.png" id="3_s7gis"]
+[ext_resource type="Texture2D" uid="uid://dy61bluy780x4" path="res://Assets/2D-art/Geant_Debut_Laugh_dark.png" id="3_v424e"]
+[ext_resource type="Texture2D" uid="uid://bmjfllsw4rslm" path="res://Assets/2D-art/Geant_3.png" id="4_f5cfm"]
+[ext_resource type="PackedScene" uid="uid://0tkcvwmir85x" path="res://Scenes/ui/halo.tscn" id="5_khm3r"]
+[ext_resource type="Texture2D" uid="uid://cold2gqwmil7h" path="res://Assets/chatouilles/pizza.png" id="6_dvc3c"]
+[ext_resource type="Animation" uid="uid://beq5dxf4fqrvd" path="res://Assets/Animations/jmj_fall.res" id="7_dsg7u"]
+[ext_resource type="AudioStream" uid="uid://bnya4b1c7sjpc" path="res://Assets/SFX/PasGeant/pasGeant1.wav" id="8_ugj1w"]
+[ext_resource type="AudioStream" uid="uid://dfinugm7brwt0" path="res://Assets/SFX/PasGeant/pasGeant2.wav" id="9_sfxgn"]
+[ext_resource type="AudioStream" uid="uid://bff7mabukuqfk" path="res://Assets/SFX/PasGeant/pasGeant3.wav" id="10_vc6lu"]
+[ext_resource type="AudioStream" uid="uid://d3xxg7iyrqqxj" path="res://Assets/SFX/PasGeant/pasGeant4.wav" id="11_f76ii"]
+[ext_resource type="AudioStream" uid="uid://bif30wi4xxd1l" path="res://Assets/SFX/RiresGeants/sonGeant1.wav" id="12_nfjn0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_71t41")
+"texture": ExtResource("3_v424e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s7gis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6gcj0")
 }],
 "loop": true,
 "name": &"dead",
@@ -25,7 +33,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_w84re")
+"texture": ExtResource("4_f5cfm")
 }],
 "loop": true,
 "name": &"default",
@@ -152,7 +160,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Halo:visible")
+tracks/9/path = NodePath("Sprite/Tickle/TickleShape/Halo:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -160,6 +168,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_f1tvt"]
@@ -229,7 +249,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/Halo:visible")
+tracks/5/path = NodePath("Sprite/Tickle/TickleShape/Halo:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -242,25 +262,25 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h1j1"]
 _data = {
 "RESET": SubResource("Animation_117ud"),
-"jmj_fall": ExtResource("4_qb8ad"),
+"jmj_fall": ExtResource("7_dsg7u"),
 "run": SubResource("Animation_f1tvt")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tpqqo"]
 random_pitch = 1.18
 streams_count = 4
-stream_0/stream = ExtResource("6_dbr0o")
+stream_0/stream = ExtResource("8_ugj1w")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("7_8h50c")
+stream_1/stream = ExtResource("9_sfxgn")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("8_a53hm")
+stream_2/stream = ExtResource("10_vc6lu")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("9_ox3ms")
+stream_3/stream = ExtResource("11_f76ii")
 stream_3/weight = 1.0
 
-[node name="Enemy" type="Node2D"]
+[node name="GiantRunning" type="Node2D"]
 position = Vector2(35, 802)
-script = ExtResource("1_ht07j")
+script = ExtResource("1_f4kb5")
 speed = -200
 
 [node name="Axe" type="Sprite2D" parent="."]
@@ -268,10 +288,10 @@ visible = false
 z_index = -1
 position = Vector2(1039.35, -2527.6)
 scale = Vector2(2.74083, 2.33155)
-texture = ExtResource("2_56f5a")
+texture = ExtResource("2_o07l4")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(1020, -1350)
+position = Vector2(1020, -1400)
 scale = Vector2(2.74083, 2.33155)
 sprite_frames = SubResource("SpriteFrames_olgp5")
 offset = Vector2(2.08165e-12, 2.06)
@@ -308,21 +328,14 @@ collision_layer = 4
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("CircleShape2D_w0o0l")
 
-[node name="Halo" parent="Sprite" instance=ExtResource("6_34xkb")]
-visible = false
-position = Vector2(-321.071, -2.14447)
-scale = Vector2(0.364853, 0.428899)
+[node name="Halo" parent="Sprite/Tickle/TickleShape" instance=ExtResource("5_khm3r")]
+position = Vector2(0, 50.0001)
 
 [node name="Pizza" type="Sprite2D" parent="Sprite"]
 visible = false
 position = Vector2(-182.426, -241.899)
 scale = Vector2(3.25517, 4.12815)
-texture = ExtResource("3_liuju")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-show_behind_parent = true
-position = Vector2(416.5, -1381)
-scale = Vector2(208.55, 167)
+texture = ExtResource("6_dvc3c")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -340,10 +353,9 @@ stream = SubResource("AudioStreamRandomizer_tpqqo")
 pitch_scale = 0.81
 
 [node name="Rire" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_oqw7b")
+stream = ExtResource("12_nfjn0")
 volume_db = 9.036
 
 [connection signal="body_entered" from="Sprite/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Sprite/Tickle" to="." method="_on_tickle_area_entered"]
 [connection signal="body_entered" from="Sprite/Tickle" to="." method="_on_tickle_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

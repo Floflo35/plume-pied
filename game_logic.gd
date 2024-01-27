@@ -6,39 +6,31 @@ var obstacles = []
 var chatouilles = []
 
 const MAX_SCORE = 10.0
-var score = 5
+var score = 4
 
-signal player_hit
-signal player_chatouille
+const AUTO_DECREASE_SPEED = 0.1;
+
+var state
+const STATE_START = 'state_start'
+const STATE_PLAY = 'state_play'
+const STATE_GAMEOVER = 'state_game_over'
+
+signal hit
+signal chatouille
 
 func _ready():
-	pass
+	state = STATE_PLAY
 
-func _process(_delta):
-	pass
-
-# --- regsitrations
-func register_ui(node):
-	ui = node
-	
-func register_obstacle(node):
-	obstacles.push_back(node)
-	
-func register_chatouille(node):
-	chatouilles.push_back(node)
-	
-func register_plume(node):
-	plume = node
+func _process(delta):
+	updateScore(-1 * delta * AUTO_DECREASE_SPEED)
 
 # --- events
 func obstacle_hit(_node):
-	plume.hit()
-	player_hit.emit()
+	hit.emit()
 	updateScore(-1)
 
 func chatouille_hit(_node):
-	plume.chatouille()
-	player_chatouille.emit()
+	chatouille.emit()
 	updateScore(1)
 
 # --- 

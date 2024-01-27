@@ -23,7 +23,7 @@ GameLogic="*res://game_logic.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/stretch/scale=0.5
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

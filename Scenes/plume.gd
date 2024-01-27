@@ -7,7 +7,8 @@ var max_speed = 400
 var is_active = true
 
 func _ready():
-	GameLogic.register_plume(self)
+	GameLogic.hit.connect(hit)
+	GameLogic.chatouille.connect(chatouille)
 	velocity = Vector2.ZERO
  
 func _physics_process(delta):
@@ -35,9 +36,11 @@ func stop():
 	kill()
 	
 func hit():
+	print('hit')
 	pass
 
 func chatouille():
+	print('chatouille')
 	pass
 
 

@@ -1,13 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg3d1havhi5v3"]
+[gd_scene load_steps=16 format=3 uid="uid://dg3d1havhi5v3"]
 
 [ext_resource type="Script" path="res://Scenes/ui/smiley.gd" id="1_asfdp"]
 [ext_resource type="PackedScene" uid="uid://7evb1oywx4lt" path="res://Scenes/ui/circle.tscn" id="2_t5j14"]
 [ext_resource type="Texture2D" uid="uid://cwle3gbg0yntb" path="res://Assets/smileys/smiley_a_1.png" id="3_51ltx"]
+[ext_resource type="Texture2D" uid="uid://dkpsifhbxb6g7" path="res://Assets/halo.png" id="3_v55iy"]
 [ext_resource type="Texture2D" uid="uid://cjbjqupn6omot" path="res://Assets/smileys/smiley_b_1.png" id="4_s11j7"]
 [ext_resource type="Texture2D" uid="uid://brf4pcsewas7k" path="res://Assets/smileys/smiley_c_1.png" id="5_52wkw"]
 [ext_resource type="Texture2D" uid="uid://d3xta3bhodq4u" path="res://Assets/smileys/smiley_d_1.png" id="6_u356r"]
 [ext_resource type="Texture2D" uid="uid://dc2u66eqnr3st" path="res://Assets/smileys/smiley_e_1.png" id="7_xj17q"]
 [ext_resource type="PackedScene" uid="uid://dnl8yobuim857" path="res://Scenes/ui/round_gauge.tscn" id="8_3im1x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1nja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v55iy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pcqbg"]
 animations = [{
@@ -52,13 +64,118 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_rrprx"]
+resource_name = "hit"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("halo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(0.38, 0.38), Vector2(0.6, 0.6), Vector2(0.38, 0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("halo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 0.388235, 0.419608, 0), Color(1, 0.388235, 0.419608, 0.803922), Color(1, 0.388235, 0.419608, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6gijp"]
+resource_name = "chatouille"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("halo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(0.38, 0.38), Vector2(0.6, 0.6), Vector2(0.38, 0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("halo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Color(0, 0.741176, 0.435294, 0), Color(0, 0.741176, 0.435294, 0.803922), Color(0, 0.741176, 0.435294, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_00f4y"]
+resource_name = "warning"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("halo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.5),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(0.38, 0.38), Vector2(0.6, 0.6), Vector2(0.38, 0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("halo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.5),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 0.388235, 0.419608, 0), Color(1, 0.388235, 0.419608, 0.803922), Color(1, 0.388235, 0.419608, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2pdbp"]
+_data = {
+"chatouille": SubResource("Animation_6gijp"),
+"hit": SubResource("Animation_rrprx"),
+"warning": SubResource("Animation_00f4y")
+}
+
 [node name="smiley" type="Node2D"]
 script = ExtResource("1_asfdp")
 
-[node name="Circle" parent="." instance=ExtResource("2_t5j14")]
+[node name="RoundGauge" parent="." instance=ExtResource("8_3im1x")]
+radius = 110
+width = 40
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="halo" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.388235, 0.419608, 0.118923)
+scale = Vector2(0.464615, 0.464615)
+sprite_frames = SubResource("SpriteFrames_m1nja")
+
+[node name="Circle" parent="." instance=ExtResource("2_t5j14")]
+radius = 80
+
+[node name="Face" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pcqbg")
 animation = &"e"
 
-[node name="RoundGauge" parent="." instance=ExtResource("8_3im1x")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2pdbp")
+}

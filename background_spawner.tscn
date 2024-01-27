@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://btqanphmnpsso"]
+
+[ext_resource type="Script" path="res://background_spawner.gd" id="1_lq1p7"]
+[ext_resource type="PackedScene" uid="uid://b3jjjb21yu3n8" path="res://arbre_001.tscn" id="2_nba14"]
+
+[node name="BackgroundSpawner" type="Node2D"]
+script = ExtResource("1_lq1p7")
+background_asset = ExtResource("2_nba14")
+location = Vector2(1000, -300)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
