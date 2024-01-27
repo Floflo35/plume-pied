@@ -4,6 +4,9 @@ var plume
 var obstacles = []
 var chatouilles = []
 
+const max_score = 10
+var score = 5
+
 func _ready():
 	pass
 
@@ -23,6 +26,8 @@ func plume_created(obj):
 # --- events
 func obstacle_hit(obj):
 	plume.hit();
+	score -= 1
 
 func chatouille_hit(obj):
 	plume.chatouille();
+	score += 1
