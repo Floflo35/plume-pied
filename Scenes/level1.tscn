@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc2y5gu3pa700"]
+[gd_scene load_steps=9 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
 [ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://el7xrk0k0kri" path="res://Scenes/obstacles/GiantRunning.tscn" id="5_d3xrm"]
 [ext_resource type="PackedScene" uid="uid://btqanphmnpsso" path="res://background_spawner.tscn" id="6_tfokk"]
 [ext_resource type="PackedScene" uid="uid://b3jjjb21yu3n8" path="res://arbre_001.tscn" id="7_4aqgj"]
+[ext_resource type="PackedScene" uid="uid://1e8aukd75ks" path="res://Scenes/obstacles/bat.tscn" id="8_lyos1"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3ug8i")
@@ -18,14 +19,15 @@ max_distance = 1e+11
 attenuation = 1e-05
 
 [node name="GiantRunning" parent="." instance=ExtResource("5_d3xrm")]
-position = Vector2(2067, 1256)
+position = Vector2(2365, 1426)
 scale = Vector2(0.55, 0.55)
+speed = -500
 
 [node name="Background1" parent="." instance=ExtResource("4_r2co1")]
 show_behind_parent = true
 
 [node name="GiantRolling" parent="." instance=ExtResource("5_6clj3")]
-position = Vector2(5236, 1226)
+position = Vector2(4042, 1324)
 scale = Vector2(0.55, 0.55)
 
 [node name="BackgroundSpawner" parent="." instance=ExtResource("6_tfokk")]
@@ -36,3 +38,12 @@ position = Vector2(2994, 830)
 z_index = -100
 position = Vector2(2475, 639)
 speed = -100
+
+[node name="Arbre_002" parent="." instance=ExtResource("7_4aqgj")]
+z_index = -100
+position = Vector2(4147, 782)
+speed = -100
+
+[node name="Bat" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(3422, 229)
+speed = -1000

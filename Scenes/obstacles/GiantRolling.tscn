@@ -492,9 +492,8 @@ stream_3/stream = ExtResource("11_br0y4")
 stream_3/weight = 1.0
 
 [node name="GiantRolling" type="Node2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(-4, 0)
 script = ExtResource("1_eilre")
-speed = -300
 base_anim = "roll"
 fall_anim = "roll_die"
 
@@ -509,7 +508,6 @@ texture = ExtResource("2_d52uw")
 position = Vector2(444, -649)
 scale = Vector2(2.74083, 2.33155)
 sprite_frames = SubResource("SpriteFrames_olgp5")
-animation = &"dead"
 offset = Vector2(125.748, -109.787)
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
@@ -521,6 +519,12 @@ collision_layer = 2
 position = Vector2(1262.54, -1368.22)
 rotation = 0.0193259
 scale = Vector2(1, 0.582974)
+shape = SubResource("CapsuleShape2D_l3fym")
+
+[node name="HitboxShape2" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(2359, -2747)
+rotation = 0.0193259
+scale = Vector2(0.560079, 0.217631)
 shape = SubResource("CapsuleShape2D_l3fym")
 
 [node name="Tickle" type="Area2D" parent="Sprite"]
@@ -582,6 +586,11 @@ pitch_scale = 0.81
 stream = ExtResource("12_clt7d")
 volume_db = 9.036
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(461, -674)
+scale = Vector2(9.2, 9.2)
+
 [connection signal="body_entered" from="Sprite/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Sprite/Tickle" to="." method="_on_tickle_area_entered"]
 [connection signal="body_entered" from="Sprite/Tickle" to="." method="_on_tickle_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
