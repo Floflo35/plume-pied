@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://q1k0lackmgv5"]
+
+[ext_resource type="Texture2D" uid="uid://degbnqkqbrnwf" path="res://Assets/2D-art/BossFight/room_background.png" id="1_85sh1"]
+[ext_resource type="Script" path="res://Scenes/BossFight.gd" id="1_30408"]
+[ext_resource type="PackedScene" uid="uid://des1aj0cjht7r" path="res://Scenes/obstacles/Boss.tscn" id="2_72qvt"]
+[ext_resource type="PackedScene" uid="uid://bwm5sat5mcnpy" path="res://mob_spawner_timer.tscn" id="4_7lyls"]
+
+[node name="BossFight" type="Node2D"]
+script = ExtResource("1_30408")
+
+[node name="RoomBackground" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(975, 558)
+scale = Vector2(1.31523, 1.31523)
+texture = ExtResource("1_85sh1")
+
+[node name="Boss" parent="." instance=ExtResource("2_72qvt")]
+position = Vector2(1084, -320)
+scale = Vector2(2.09847, 2.09847)
+
+[node name="MobSpawnerTimer" parent="." instance=ExtResource("4_7lyls")]
+y_min = 400
+y_max = 1080
