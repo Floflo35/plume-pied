@@ -1,45 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
-[ext_resource type="PackedScene" uid="uid://b0i0qd3tnpo0n" path="res://Scenes/obstacles/head.tscn" id="1_m0naj"]
-[ext_resource type="PackedScene" uid="uid://cnd3m2pr4bw7t" path="res://Scenes/chatouilles/pizza.tscn" id="3_l6ikc"]
 [ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
+[ext_resource type="PackedScene" uid="uid://c4xvlposdih4t" path="res://Scenes/background_1.tscn" id="4_r2co1"]
+[ext_resource type="PackedScene" uid="uid://el7xrk0k0kri" path="res://Scenes/obstacles/Giant1.tscn" id="5_d3xrm"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3ug8i")
-
-[node name="Head" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(901, 242)
-
-[node name="Head2" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(1520, 533)
-
-[node name="Head3" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(516, 582)
-
-[node name="Head4" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(1470, 426)
-
-[node name="Head5" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(1344, 404)
-
-[node name="Head6" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(1977, 203)
-
-[node name="Head7" parent="." instance=ExtResource("1_m0naj")]
-position = Vector2(2653, 795)
-
-[node name="Pizza" parent="." instance=ExtResource("3_l6ikc")]
-position = Vector2(993, 510)
-
-[node name="Pizza2" parent="." instance=ExtResource("3_l6ikc")]
-position = Vector2(1545, 140)
-
-[node name="Pizza3" parent="." instance=ExtResource("3_l6ikc")]
-position = Vector2(2739, 369)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mcxun")
 autoplay = true
 max_distance = 1e+11
 attenuation = 1e-05
+
+[node name="JMJ" parent="." instance=ExtResource("5_d3xrm")]
+position = Vector2(1777, 1635)
+
+[node name="Background1" parent="." instance=ExtResource("4_r2co1")]
+show_behind_parent = true

@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://be7jw88j8mmd6"]
 
 [ext_resource type="PackedScene" uid="uid://b5vboh0k8p6ac" path="res://Scenes/plume.tscn" id="1_oud7g"]
+[ext_resource type="PackedScene" uid="uid://bc2y5gu3pa700" path="res://Scenes/level1.tscn" id="2_uit1h"]
 [ext_resource type="PackedScene" uid="uid://ct404vm523tix" path="res://Scenes/ui.tscn" id="3_bcs3h"]
-[ext_resource type="PackedScene" uid="uid://bapxu5kd5fusa" path="res://Scenes/obstacles/JMJ.tscn" id="4_430pn"]
 
 [node name="Main2d" type="Node2D"]
+
+[node name="Level1" parent="." instance=ExtResource("2_uit1h")]
 
 [node name="Plume" parent="." instance=ExtResource("1_oud7g")]
 position = Vector2(548, 303)
 
 [node name="Ui" parent="." instance=ExtResource("3_bcs3h")]
+top_level = true
 metadata/_edit_use_anchors_ = true
-
-[node name="JMJ" parent="." instance=ExtResource("4_430pn")]
-position = Vector2(1387, 1373)
