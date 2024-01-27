@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bs6ylq4g7e52s"
-path="res://.godot/imported/pasGeant1.wav-ca63c475b77320647f89bd5fb4495b56.sample"
+path="res://.godot/imported/pasGeant1.wav-e14d2b3249eed8a0f5897880a8ad417f.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Exterieur/pasGeant1.wav"
-dest_files=["res://.godot/imported/pasGeant1.wav-ca63c475b77320647f89bd5fb4495b56.sample"]
+source_file="res://Assets/SFX/niveau1Exterieur/pasGeant1.wav"
+dest_files=["res://.godot/imported/pasGeant1.wav-e14d2b3249eed8a0f5897880a8ad417f.sample"]
 
 [params]
 

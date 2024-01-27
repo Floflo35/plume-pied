@@ -13,4 +13,4 @@ grow_vertical = 2
 script = ExtResource("1_4gbp6")
 
 [node name="smiley" parent="." instance=ExtResource("3_gj5fx")]
-position = Vector2(340, 956)
+position = Vector2(134, 956)

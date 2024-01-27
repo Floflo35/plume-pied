@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dnglju046v7xs"
-path="res://.godot/imported/AmbianceExt.wav-5ae8a788001ba1b15b842d4a22800a2d.sample"
+path="res://.godot/imported/AmbianceExt.wav-eb2575bcbc76bbd24bdb74503ee94b44.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/Exterieur/AmbianceExt.wav"
-dest_files=["res://.godot/imported/AmbianceExt.wav-5ae8a788001ba1b15b842d4a22800a2d.sample"]
+source_file="res://Assets/SFX/niveau1Exterieur/AmbianceExt.wav"
+dest_files=["res://.godot/imported/AmbianceExt.wav-eb2575bcbc76bbd24bdb74503ee94b44.sample"]
 
 [params]
 
