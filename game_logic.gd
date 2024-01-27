@@ -29,7 +29,13 @@ func register_chatouille(node):
 	
 func register_plume(node):
 	plume = node
-	
+
+
+# --- accessors
+func getScore():
+	return score
+
+
 # --- events
 func obstacle_hit(node):
 	plume.hit()

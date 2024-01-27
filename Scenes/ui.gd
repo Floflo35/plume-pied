@@ -4,4 +4,4 @@ func _ready():
 	GameLogic.register_ui(self)
 
 func _process(delta):
-	pass
+	$score_label.text = str(GameLogic.getScore())

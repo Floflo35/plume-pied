@@ -10,3 +10,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4gbp6")
+
+[node name="score_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 61.0
+offset_bottom = 37.0
+text = "_"
