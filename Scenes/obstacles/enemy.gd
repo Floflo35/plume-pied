@@ -5,6 +5,8 @@ extends Node2D
 signal hit_player
 signal tickled
 
+var fall_anim = 'jmj_fall'
+
 func _ready():
 	pass
 	
@@ -21,3 +23,4 @@ func _on_tickle_area_entered(area):
 	print("LOL")
 	$TickleSound.playing = true
 	$AnimationPlayer.active = true
+	$AnimationPlayer.assigned_animation = fall_anim
