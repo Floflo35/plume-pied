@@ -3,6 +3,7 @@ extends Node2D
 func _ready():
 	GameLogic.hit.connect(hit)
 	GameLogic.chatouille.connect(chatouille)
+	GameLogic.fly.connect(fly)
 	
 	
 func hit():
@@ -11,3 +12,7 @@ func hit():
 
 func chatouille():
 	$GuiliSound.playing = true
+	
+	
+func fly():
+	$FlySound.playing = true
