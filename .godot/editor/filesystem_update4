@@ -1,5 +1,3 @@
 res://Scenes/obstacles/head.tscn
 res://Scenes/obstacles.tscn
-res://Scenes/main.tscn
-res://Scenes/obstacles.gd
-res://Scenes/plume.tscn
+res://Scenes/obstacles/head.gd

@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameLogic="*res://game_logic.gd"
+
 [dotnet]
 
 project/assembly_name="plume-pied"
