@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameLogic="*res://game_logic.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="plume-pied"
