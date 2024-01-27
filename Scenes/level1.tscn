@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc2y5gu3pa700"]
+[gd_scene load_steps=6 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
 [ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
 [ext_resource type="PackedScene" uid="uid://c4xvlposdih4t" path="res://Scenes/background_1.tscn" id="4_r2co1"]
-[ext_resource type="PackedScene" uid="uid://el7xrk0k0kri" path="res://Scenes/obstacles/Giant1.tscn" id="5_d3xrm"]
+[ext_resource type="PackedScene" uid="uid://dljtgvdn3ba7m" path="res://Scenes/obstacles/GiantRolling.tscn" id="5_6clj3"]
+[ext_resource type="PackedScene" uid="uid://el7xrk0k0kri" path="res://Scenes/obstacles/GiantRunning.tscn" id="5_d3xrm"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3ug8i")
@@ -14,9 +15,13 @@ autoplay = true
 max_distance = 1e+11
 attenuation = 1e-05
 
-[node name="JMJ" parent="." instance=ExtResource("5_d3xrm")]
-position = Vector2(1777, 1381.07)
+[node name="GiantRunning" parent="." instance=ExtResource("5_d3xrm")]
+position = Vector2(2067, 1256)
 scale = Vector2(0.55, 0.55)
 
 [node name="Background1" parent="." instance=ExtResource("4_r2co1")]
 show_behind_parent = true
+
+[node name="GiantRolling" parent="." instance=ExtResource("5_6clj3")]
+position = Vector2(5236, 1226)
+scale = Vector2(0.55, 0.55)
