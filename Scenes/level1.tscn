@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc2y5gu3pa700"]
+[gd_scene load_steps=5 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
 [ext_resource type="PackedScene" uid="uid://b0i0qd3tnpo0n" path="res://Scenes/obstacles/head.tscn" id="1_m0naj"]
 [ext_resource type="PackedScene" uid="uid://cnd3m2pr4bw7t" path="res://Scenes/chatouilles/pizza.tscn" id="3_l6ikc"]
+[ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3ug8i")
@@ -36,3 +37,9 @@ position = Vector2(1545, 140)
 
 [node name="Pizza3" parent="." instance=ExtResource("3_l6ikc")]
 position = Vector2(2739, 369)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mcxun")
+autoplay = true
+max_distance = 1e+11
+attenuation = 1e-05

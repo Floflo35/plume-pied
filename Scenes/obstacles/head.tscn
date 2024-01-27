@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0i0qd3tnpo0n"]
 
-[ext_resource type="Script" path="res://Scenes/obstacles/head.gd" id="1_k3rr7"]
+[ext_resource type="Script" path="res://Scenes/obstacles/obstacle.gd" id="1_pdw7f"]
 [ext_resource type="Texture2D" uid="uid://c5xvqeephrwv5" path="res://Assets/obstacles/head.png" id="2_dpdn3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_288mw"]
 radius = 67.4759
 
 [node name="Head" type="Area2D"]
-script = ExtResource("1_k3rr7")
+script = ExtResource("1_pdw7f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.605, 2.605)
