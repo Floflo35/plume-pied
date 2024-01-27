@@ -7,6 +7,7 @@
 radius = 67.4759
 
 [node name="Head" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_pdw7f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

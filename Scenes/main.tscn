@@ -6,9 +6,11 @@
 
 [node name="Main2d" type="Node2D"]
 
+[node name="Level1" parent="." instance=ExtResource("2_uit1h")]
+
 [node name="Plume" parent="." instance=ExtResource("1_oud7g")]
 position = Vector2(548, 303)
 
-[node name="obstacles" parent="." instance=ExtResource("2_uit1h")]
-
 [node name="Ui" parent="." instance=ExtResource("3_bcs3h")]
+top_level = true
+metadata/_edit_use_anchors_ = true
