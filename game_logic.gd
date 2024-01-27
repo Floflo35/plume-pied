@@ -5,7 +5,7 @@ var plume
 var obstacles = []
 var chatouilles = []
 
-const MAX_SCORE = 10
+const MAX_SCORE = 10.0
 var score = 5
 
 signal player_hit
@@ -47,4 +47,7 @@ func updateScore(delta):
 
 func getScore():
 	return score
+
+func getPercentageScore():
+	return score / MAX_SCORE;
 	
