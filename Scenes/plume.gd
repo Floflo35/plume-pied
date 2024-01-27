@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var gravity = 900.0
-@export var jump_force = -300.0
+@export var fly_force = -300.0
 
 var max_speed = 400
 var is_active = true
@@ -19,7 +19,7 @@ func _physics_process(delta):
 		
 	if fly_on_next_physic_frame:
 		fly_on_next_physic_frame = false
-		jump()
+		fly()
 		
 	velocity.y += gravity * delta
 	velocity.y = min(velocity.y , max_speed)
@@ -29,9 +29,8 @@ func _physics_process(delta):
 func fly_requested():
 	fly_on_next_physic_frame = true
 
-func jump():
-	velocity.y = jump_force
-	velocity.x = deg_to_rad(-30)
+func fly():
+	velocity.y = fly_force
 	
 func kill():
 	is_active = false
