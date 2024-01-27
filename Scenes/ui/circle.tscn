@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7evb1oywx4lt"]
+
+[ext_resource type="Script" path="res://Scenes/ui/circle.gd" id="1_fkm0g"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rpmlv"]
+
+[node name="Circle" type="Node2D"]
+script = ExtResource("1_fkm0g")
+
+[node name="placeholder" type="MeshInstance2D" parent="."]
+scale = Vector2(200, 200)
+mesh = SubResource("SphereMesh_rpmlv")

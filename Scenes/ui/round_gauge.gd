@@ -15,13 +15,12 @@ const start_angle = - PI / 2
 func _ready():
 	remove_child($placeholder)
 
-func _process(delta):
+func _process(_delta):
 	if (percentage != drawn_percentage && percentage >= 0 && percentage <= 1):
 		queue_redraw()
 		drawn_percentage = percentage
 
 func _draw():
-	#var center = position
 	var center = Vector2(0, 0)
 	
 	# draw the track in background
@@ -33,13 +32,13 @@ func _draw():
 		color = end_color 
 	draw_percentage_arc(center, radius, width, percentage, color)
 	
-func draw_percentage_arc(center, radius, width, percentage, color):
+func draw_percentage_arc(center, r, w, p, color):
 	var points = get_arc(
 		center,
-		radius - width,
-		radius,
+		r - w,
+		r,
 		start_angle,
-		start_angle + percentage * PI * 2.0)
+		start_angle + p * PI * 2.0)
 	draw_polygon(points, PackedColorArray([color]))
 
 func get_arc(center, inner_radius, outter_radius, angle_from, angle_to):
@@ -62,4 +61,4 @@ func get_arc(center, inner_radius, outter_radius, angle_from, angle_to):
 	return outter_points
 
 func get_normalized_circle_point(angle):
-		return Vector2(cos(angle), sin(angle))
+	return Vector2(cos(angle), sin(angle))

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg3d1havhi5v3"]
+
+[ext_resource type="Script" path="res://Scenes/ui/smiley.gd" id="1_asfdp"]
+[ext_resource type="PackedScene" uid="uid://7evb1oywx4lt" path="res://Scenes/ui/circle.tscn" id="2_t5j14"]
+[ext_resource type="Texture2D" uid="uid://cwle3gbg0yntb" path="res://Assets/smileys/smiley_a_1.png" id="3_51ltx"]
+[ext_resource type="Texture2D" uid="uid://cjbjqupn6omot" path="res://Assets/smileys/smiley_b_1.png" id="4_s11j7"]
+[ext_resource type="Texture2D" uid="uid://brf4pcsewas7k" path="res://Assets/smileys/smiley_c_1.png" id="5_52wkw"]
+[ext_resource type="Texture2D" uid="uid://d3xta3bhodq4u" path="res://Assets/smileys/smiley_d_1.png" id="6_u356r"]
+[ext_resource type="Texture2D" uid="uid://dc2u66eqnr3st" path="res://Assets/smileys/smiley_e_1.png" id="7_xj17q"]
+[ext_resource type="PackedScene" uid="uid://dnl8yobuim857" path="res://Scenes/ui/round_gauge.tscn" id="8_3im1x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcqbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_51ltx")
+}],
+"loop": true,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_s11j7")
+}],
+"loop": true,
+"name": &"b",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_52wkw")
+}],
+"loop": true,
+"name": &"c",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_u356r")
+}],
+"loop": true,
+"name": &"d",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xj17q")
+}],
+"loop": true,
+"name": &"e",
+"speed": 5.0
+}]
+
+[node name="smiley" type="Node2D"]
+script = ExtResource("1_asfdp")
+
+[node name="Circle" parent="." instance=ExtResource("2_t5j14")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pcqbg")
+animation = &"e"
+
+[node name="RoundGauge" parent="." instance=ExtResource("8_3im1x")]

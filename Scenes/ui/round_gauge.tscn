@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnl8yobuim857"]
 
-[ext_resource type="Script" path="res://Scenes/round_gauge.gd" id="1_xjgtf"]
+[ext_resource type="Script" path="res://Scenes/ui/round_gauge.gd" id="1_xjgtf"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_xhth8"]
 

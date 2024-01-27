@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct404vm523tix"]
 
 [ext_resource type="Script" path="res://Scenes/ui.gd" id="1_4gbp6"]
-[ext_resource type="PackedScene" uid="uid://dnl8yobuim857" path="res://Scenes/round_gauge.tscn" id="2_0qtgu"]
+[ext_resource type="PackedScene" uid="uid://dg3d1havhi5v3" path="res://Scenes/ui/smiley.tscn" id="3_gj5fx"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -20,6 +20,5 @@ offset_right = 143.0
 offset_bottom = 971.0
 text = "_"
 
-[node name="score_gauge" parent="." instance=ExtResource("2_0qtgu")]
-position = Vector2(121, 956)
-width = 30
+[node name="smiley" parent="." instance=ExtResource("3_gj5fx")]
+position = Vector2(340, 956)
