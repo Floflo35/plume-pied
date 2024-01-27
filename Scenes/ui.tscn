@@ -12,13 +12,5 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4gbp6")
 
-[node name="score_label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 948.0
-offset_right = 143.0
-offset_bottom = 971.0
-text = "_"
-
 [node name="smiley" parent="." instance=ExtResource("3_gj5fx")]
 position = Vector2(340, 956)
