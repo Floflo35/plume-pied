@@ -34,7 +34,7 @@ func get_color_for_score(s):
 	)
 
 func hit():
-	if GameLogic.getPercentageScore() <= 0.2:
+	if GameLogic.getPercentageScore() >= 0.2:
 		$AnimationPlayer.play("hit")
 	else:
 		$AnimationPlayer.play("warning")

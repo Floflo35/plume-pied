@@ -164,8 +164,8 @@ radius = 110
 width = 40
 
 [node name="halo" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0.388235, 0.419608, 0.118923)
-scale = Vector2(0.464615, 0.464615)
+modulate = Color(0, 0.741176, 0.435294, 0.102541)
+scale = Vector2(0.458571, 0.458571)
 sprite_frames = SubResource("SpriteFrames_m1nja")
 
 [node name="Circle" parent="." instance=ExtResource("2_t5j14")]
