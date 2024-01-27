@@ -39,13 +39,13 @@ func stop():
 	gravity = 0
 	velocity = Vector2.ZERO
 	kill()
-	
+
 func hit():
-	print('hit')
-	pass
+	$AnimationPlayer.play("hit")
 
 func chatouille():
-	print('chatouille')
-	pass
+	$AnimationPlayer.play("chatouille")
 
-
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name != "fall":
+		$AnimationPlayer.play("fall")
