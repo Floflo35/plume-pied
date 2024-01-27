@@ -1,17 +1,10 @@
 extends Area2D
 
-signal obstacle_hit
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GameLogic.obstacle_created(self)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
 func _on_body_entered(body):
-	obstacle_hit.emit(body);
+	GameLogic.obstacle_hit(body);

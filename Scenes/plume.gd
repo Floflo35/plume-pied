@@ -7,6 +7,7 @@ var max_speed = 400
 var is_active = true
 
 func _ready():
+	GameLogic.plume_created(self)
 	velocity = Vector2.ZERO
  
 func _physics_process(delta):
@@ -32,3 +33,11 @@ func stop():
 	gravity = 0
 	velocity = Vector2.ZERO
 	kill()
+	
+func hit():
+	pass
+
+func chatouille():
+	pass
+
+
