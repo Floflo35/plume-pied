@@ -2,6 +2,11 @@ extends Control
 
 var score_inertia = 10
 
+func _ready():
+	clean_ui()
+	GameLogic.game_started.connect(clean_ui)
+	GameLogic.game_stopped.connect(game_over)
+
 func _process(time_delta):	
 	var current_score = GameLogic.getPercentageScore()
 	var smiley_score = $smiley.get_score()
@@ -17,3 +22,14 @@ func _process(time_delta):
 		$smiley.set_score(smiley_score + animated_score_delta)
 	else:
 		$smiley.set_score(current_score)
+
+func clean_ui():
+	#test 1
+	#$AnimationPlayer.play("reset")
+	
+	#test 2
+	$AnimationPlayer.stop()
+	$GameOver.modulate = Color(1,1,1,0)
+
+func game_over():
+	$AnimationPlayer.play("game_over")

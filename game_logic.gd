@@ -7,7 +7,8 @@ signal chatouille
 signal fly
 
 const MAX_SCORE = 10.0
-var score = 2
+const INITIAL_SCORE = 1.0
+var score
 
 const AUTO_DECREASE_SPEED = 0.1;
 
@@ -21,7 +22,7 @@ var scene_intro = "res://Scenes/intro.tscn"
 var scene_main = "res://Scenes/main.tscn"
 
 func _ready():
-	state = STATE_PLAY
+	reset_game()
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 
@@ -37,11 +38,19 @@ func start_game():
 	game_started.emit()
 	goto_scene(scene_main)
 
-func game_over():
-	print("game_over")
+func end_game():
+	print("end_game")
 	state = STATE_GAMEOVER
 	game_stopped.emit()
-	goto_scene(scene_intro) #todo add delay
+	
+	var timer = get_tree().create_timer(5)  
+	timer.timeout.connect(reset_game)
+
+func reset_game():
+	print("reset_game")
+	state = STATE_START
+	score = INITIAL_SCORE
+	goto_scene(scene_intro)
 
 func obstacle_hit(_node):
 	if state == STATE_PLAY:
@@ -58,7 +67,7 @@ func updateScore(delta):
 	if state == STATE_PLAY:
 		score = min(MAX_SCORE, max(0, score + delta))
 		if (score == 0):
-			game_over()
+			end_game()
 
 func getScore():
 	return score
@@ -68,7 +77,6 @@ func getPercentageScore():
 
 # ---
 func goto_scene(path):
-	print("goto" + path)
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
 	# Deleting the current scene at this point is
@@ -81,7 +89,6 @@ func goto_scene(path):
 
 
 func _deferred_goto_scene(path):
-	print("deferred")
 	current_scene.free()
 	var s = ResourceLoader.load(path)
 	current_scene = s.instantiate()
