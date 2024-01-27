@@ -1,5 +1,6 @@
 extends Node
 
+var ui
 var plume
 var obstacles = []
 var chatouilles = []
@@ -14,20 +15,23 @@ func _process(delta):
 	pass
 
 # --- regsitrations
-func obstacle_created(obj):
-	obstacles.push_back(obj)
+func register_ui(node):
+	ui = node
 	
-func chatouille_created(obj):
-	chatouilles.push_back(obj)
+func register_obstacle(node):
+	obstacles.push_back(node)
 	
-func plume_created(obj):
-	plume = obj
+func register_chatouille(node):
+	chatouilles.push_back(node)
+	
+func register_plume(node):
+	plume = node
 	
 # --- events
-func obstacle_hit(obj):
+func obstacle_hit(node):
 	plume.hit();
 	score -= 1
 
-func chatouille_hit(obj):
+func chatouille_hit(node):
 	plume.chatouille();
 	score += 1

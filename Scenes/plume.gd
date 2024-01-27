@@ -7,7 +7,7 @@ var max_speed = 400
 var is_active = true
 
 func _ready():
-	GameLogic.plume_created(self)
+	GameLogic.register_plume(self)
 	velocity = Vector2.ZERO
  
 func _physics_process(delta):

@@ -1,7 +1,7 @@
 extends Area2D
 
 func _ready():
-	GameLogic.obstacle_created(self)
+	GameLogic.register_obstacle(self)
 
 func _process(delta):
 	pass
