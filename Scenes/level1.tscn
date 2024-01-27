@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc2y5gu3pa700"]
+[gd_scene load_steps=8 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
 [ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
 [ext_resource type="PackedScene" uid="uid://c4xvlposdih4t" path="res://Scenes/background_1.tscn" id="4_r2co1"]
 [ext_resource type="PackedScene" uid="uid://dljtgvdn3ba7m" path="res://Scenes/obstacles/GiantRolling.tscn" id="5_6clj3"]
 [ext_resource type="PackedScene" uid="uid://el7xrk0k0kri" path="res://Scenes/obstacles/GiantRunning.tscn" id="5_d3xrm"]
-[ext_resource type="PackedScene" uid="uid://btqanphmnpsso" path="res://background_spawner.tscn" id="6_tfokk"]
 [ext_resource type="PackedScene" uid="uid://b3jjjb21yu3n8" path="res://arbre_001.tscn" id="7_4aqgj"]
 [ext_resource type="PackedScene" uid="uid://1e8aukd75ks" path="res://Scenes/obstacles/bat.tscn" id="8_lyos1"]
 
@@ -30,10 +29,6 @@ show_behind_parent = true
 position = Vector2(4042, 1324)
 scale = Vector2(0.55, 0.55)
 
-[node name="BackgroundSpawner" parent="." instance=ExtResource("6_tfokk")]
-top_level = true
-position = Vector2(2994, 830)
-
 [node name="Arbre_001" parent="." instance=ExtResource("7_4aqgj")]
 z_index = -100
 position = Vector2(2475, 639)
@@ -46,4 +41,3 @@ speed = -100
 
 [node name="Bat" parent="." instance=ExtResource("8_lyos1")]
 position = Vector2(3422, 229)
-speed = -1000

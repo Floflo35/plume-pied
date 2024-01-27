@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5mlxfw3s7a1n"]
+
+[ext_resource type="Script" path="res://audio_ui.gd" id="1_bjcek"]
+[ext_resource type="AudioStream" uid="uid://djqcoykudh1du" path="res://Assets/SFX/Damage.wav" id="1_gsfrk"]
+[ext_resource type="AudioStream" uid="uid://c6lysdys82xlb" path="res://Assets/SFX/guili.wav" id="3_4kuoj"]
+[ext_resource type="AudioStream" uid="uid://buuwo10kcl6kh" path="res://Assets/SFX/Whoosh1.wav" id="4_odrh0"]
+[ext_resource type="AudioStream" uid="uid://kjhufv622ehj" path="res://Assets/SFX/Whoosh2.wav" id="5_1woy5"]
+[ext_resource type="AudioStream" uid="uid://rgng348rk8m6" path="res://Assets/SFX/Whoosh3.wav" id="6_nvx8s"]
+[ext_resource type="AudioStream" uid="uid://egmktvt0pdrk" path="res://Assets/SFX/Whoosh4.wav" id="7_0o7g5"]
+[ext_resource type="AudioStream" uid="uid://c0egc6qf6vqmy" path="res://Assets/SFX/Whoosh5.wav" id="8_qsur2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fq0ly"]
+streams_count = 5
+stream_0/stream = ExtResource("4_odrh0")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_1woy5")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_nvx8s")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_0o7g5")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_qsur2")
+stream_4/weight = 1.0
+
+[node name="AudioUI" type="Node2D"]
+script = ExtResource("1_bjcek")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_gsfrk")
+attenuation = 1e-05
+
+[node name="GuiliSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4kuoj")
+attenuation = 1e-05
+
+[node name="FlySound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_fq0ly")
+attenuation = 1e-05

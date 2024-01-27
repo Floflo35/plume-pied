@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://el7xrk0k0kri"]
+[gd_scene load_steps=28 format=3 uid="uid://el7xrk0k0kri"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_f4kb5"]
 [ext_resource type="Texture2D" uid="uid://dalkob5yhlutv" path="res://Assets/2D-art/axe.png" id="2_o07l4"]
@@ -13,7 +13,12 @@
 [ext_resource type="AudioStream" uid="uid://dfinugm7brwt0" path="res://Assets/SFX/PasGeant/pasGeant2.wav" id="9_sfxgn"]
 [ext_resource type="AudioStream" uid="uid://bff7mabukuqfk" path="res://Assets/SFX/PasGeant/pasGeant3.wav" id="10_vc6lu"]
 [ext_resource type="AudioStream" uid="uid://d3xxg7iyrqqxj" path="res://Assets/SFX/PasGeant/pasGeant4.wav" id="11_f76ii"]
-[ext_resource type="AudioStream" uid="uid://bif30wi4xxd1l" path="res://Assets/SFX/RiresGeants/sonGeant1.wav" id="12_nfjn0"]
+[ext_resource type="AudioStream" uid="uid://bif30wi4xxd1l" path="res://Assets/SFX/RiresGeants/sonGeant1.wav" id="14_wirvw"]
+[ext_resource type="AudioStream" uid="uid://cab48gx0x14cr" path="res://Assets/SFX/RiresGeants/sonGeant2,.wav" id="15_i7boy"]
+[ext_resource type="AudioStream" uid="uid://cq5b1tsjco7h8" path="res://Assets/SFX/RiresGeants/sonGeant3,.wav" id="16_6uh64"]
+[ext_resource type="AudioStream" uid="uid://c7bkppcj1lbid" path="res://Assets/SFX/RiresGeants/sonGeant4,.wav" id="17_gksxj"]
+[ext_resource type="AudioStream" uid="uid://ypft653nerte" path="res://Assets/SFX/RiresGeants/sonGeant5.wav" id="18_d40vy"]
+[ext_resource type="AudioStream" uid="uid://de3xq384xx5sx" path="res://Assets/SFX/RiresGeants/sonGeant7.wav" id="19_l71i3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
@@ -148,38 +153,38 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Rire:playing")
+tracks/8/path = NodePath("Sprite/Tickle/TickleShape/Halo:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Tickle/TickleShape/Halo:visible")
+tracks/9/path = NodePath("Sprite:frame")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [0]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite:frame")
+tracks/10/path = NodePath("Rire:playing")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f1tvt"]
@@ -278,6 +283,21 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource("11_f76ii")
 stream_3/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qqspx"]
+streams_count = 6
+stream_0/stream = ExtResource("14_wirvw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_i7boy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_6uh64")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("17_gksxj")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("18_d40vy")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("19_l71i3")
+stream_5/weight = 1.0
+
 [node name="GiantRunning" type="Node2D"]
 position = Vector2(30, 802)
 script = ExtResource("1_f4kb5")
@@ -343,16 +363,12 @@ libraries = {
 }
 autoplay = "run"
 
-[node name="TickleSound" type="AudioStreamPlayer2D" parent="."]
-visible = false
-max_distance = 20000.0
-
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_tpqqo")
 pitch_scale = 0.81
 
 [node name="Rire" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_nfjn0")
+stream = SubResource("AudioStreamRandomizer_qqspx")
 volume_db = 9.036
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
