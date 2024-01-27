@@ -17,12 +17,15 @@ const STATE_GAMEOVER = 'state_game_over'
 
 signal hit
 signal chatouille
+signal fly
 
 func _ready():
 	state = STATE_PLAY
 
 func _process(delta):
 	updateScore(-1 * delta * AUTO_DECREASE_SPEED)
+	if Input.is_action_just_pressed("up"):
+		fly.emit()
 
 # --- events
 func obstacle_hit(_node):
