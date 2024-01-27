@@ -22,3 +22,4 @@ text = "_"
 
 [node name="score_gauge" parent="." instance=ExtResource("2_0qtgu")]
 position = Vector2(121, 956)
+width = 30
