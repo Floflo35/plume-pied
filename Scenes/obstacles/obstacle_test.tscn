@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://x7gaxktm13dv"]
+
+[ext_resource type="Script" path="res://Scenes/obstacles/obstacle.gd" id="1_o4h15"]
+[ext_resource type="Texture2D" uid="uid://oa53y473btlf" path="res://Assets/2D-art/jmjsmall.png" id="2_urcv3"]
+
+[node name="ObstacleTest" type="Node2D"]
+script = ExtResource("1_o4h15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_urcv3")
