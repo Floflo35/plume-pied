@@ -46,6 +46,7 @@ _data = {
 
 [node name="JMJ" type="Node2D"]
 position = Vector2(35, 802)
+rotation = -0.0872665
 script = ExtResource("1_wp2nd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

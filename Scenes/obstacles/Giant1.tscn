@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://el7xrk0k0kri"]
+
+[ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_ht07j"]
+[ext_resource type="Texture2D" uid="uid://5fq1ggi0tkrk" path="res://Assets/2D-art/Geant_1.png" id="2_ljjs7"]
+[ext_resource type="Texture2D" uid="uid://cold2gqwmil7h" path="res://Assets/chatouilles/pizza.png" id="3_liuju"]
+[ext_resource type="Animation" uid="uid://beq5dxf4fqrvd" path="res://Assets/Animations/jmj_fall.res" id="4_qb8ad"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ljjs7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3fym"]
+radius = 290.0
+height = 2437.94
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0o0l"]
+radius = 248.798
+
+[sub_resource type="Animation" id="Animation_117ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6h1j1"]
+_data = {
+"RESET": SubResource("Animation_117ud"),
+"jmj_fall": ExtResource("4_qb8ad")
+}
+
+[node name="Enemy" type="Node2D"]
+position = Vector2(35, 802)
+script = ExtResource("1_ht07j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(444, -649)
+scale = Vector2(2.31634, 1.97045)
+sprite_frames = SubResource("SpriteFrames_olgp5")
+flip_h = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-246, 22)
+collision_layer = 2
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(588, -738)
+rotation = 0.238471
+shape = SubResource("CapsuleShape2D_l3fym")
+
+[node name="HitboxShape2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(196, -728)
+rotation = 0.378885
+scale = Vector2(0.906202, 0.222619)
+shape = SubResource("CapsuleShape2D_l3fym")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+show_behind_parent = true
+position = Vector2(-270, -765)
+scale = Vector2(139.9, 105.4)
+
+[node name="Tickle" type="Area2D" parent="."]
+position = Vector2(-218, 23)
+collision_layer = 4
+
+[node name="TickleShape" type="CollisionShape2D" parent="Tickle"]
+position = Vector2(241, -1101)
+shape = SubResource("CircleShape2D_w0o0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tickle"]
+position = Vector2(225, -1099)
+scale = Vector2(8.92187, 9.625)
+texture = ExtResource("3_liuju")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_6h1j1")
+}
+
+[node name="TickleSound" type="AudioStreamPlayer2D" parent="."]
+visible = false
+max_distance = 20000.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="area_entered" from="Tickle" to="." method="_on_tickle_area_entered"]
+[connection signal="body_entered" from="Tickle" to="." method="_on_tickle_body_entered"]
