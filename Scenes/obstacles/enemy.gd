@@ -24,7 +24,8 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 	
 func _on_hitbox_body_entered(body):
 	#print("ouch")
-	$Tickle.set_deferred("monitoring", false)
+	$Sprite/Tickle.set_deferred("monitoring", false)
+	$Sprite/Tickle.set_deferred("visible", false)
 	$Hitbox.set_deferred("monitoring", false)
 	GameLogic.obstacle_hit(body)
 
@@ -34,6 +35,7 @@ func _on_tickle_body_entered(body):
 	$TickleSound.playing = true
 	$AnimationPlayer.active = true
 	$AnimationPlayer.play("jmj_fall")
-	$Tickle.set_deferred("monitoring", false)
-	$Hitbox.set_deferred("monitoring", false)
+	$Sprite/Tickle.set_deferred("monitoring", false)
+	$Sprite/Tickle.set_deferred("visible", false)
+	$Sprite/Hitbox.set_deferred("monitoring", false)
 	GameLogic.chatouille_hit(body)
