@@ -15,7 +15,8 @@ max_distance = 1e+11
 attenuation = 1e-05
 
 [node name="JMJ" parent="." instance=ExtResource("5_d3xrm")]
-position = Vector2(1777, 1635)
+position = Vector2(1777, 1381.07)
+scale = Vector2(0.55, 0.55)
 
 [node name="Background1" parent="." instance=ExtResource("4_r2co1")]
 show_behind_parent = true
