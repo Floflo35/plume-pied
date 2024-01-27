@@ -38,12 +38,6 @@ up={
 ]
 }
 
-[layer_names]
-
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Obstacle"
-2d_physics/layer_3="TickleSpot"
-
 [rendering]
 
 renderer/rendering_method="mobile"

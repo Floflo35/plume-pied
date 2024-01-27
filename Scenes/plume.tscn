@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="Plume" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_prk4g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
