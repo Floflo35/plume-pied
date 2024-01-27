@@ -8,7 +8,8 @@ signal tickled
 var fall_anim = "jmj_fall"
 
 func _ready():
-	pass
+	$AnimationPlayer.active = true
+	$AnimationPlayer.play("run")
 	
 	
 func _process(delta):

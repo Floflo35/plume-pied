@@ -1,16 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://el7xrk0k0kri"]
+[gd_scene load_steps=18 format=3 uid="uid://el7xrk0k0kri"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_ht07j"]
-[ext_resource type="Texture2D" uid="uid://tg1hegejqyai" path="res://Assets/2D-art/Geant_1_dark.png" id="2_817ev"]
-[ext_resource type="Texture2D" uid="uid://5fq1ggi0tkrk" path="res://Assets/2D-art/Geant_1.png" id="2_ljjs7"]
+[ext_resource type="Texture2D" uid="uid://dalkob5yhlutv" path="res://Assets/2D-art/axe.png" id="2_56f5a"]
+[ext_resource type="Texture2D" uid="uid://cfpq45w4pxnaq" path="res://Assets/2D-art/Geant_Laugh_dark.png" id="2_71t41"]
 [ext_resource type="Texture2D" uid="uid://cold2gqwmil7h" path="res://Assets/chatouilles/pizza.png" id="3_liuju"]
+[ext_resource type="Texture2D" uid="uid://bmjfllsw4rslm" path="res://Assets/2D-art/Geant_3.png" id="3_w84re"]
 [ext_resource type="Animation" uid="uid://beq5dxf4fqrvd" path="res://Assets/Animations/jmj_fall.res" id="4_qb8ad"]
+[ext_resource type="AudioStream" uid="uid://bnya4b1c7sjpc" path="res://Assets/SFX/PasGeant/pasGeant1.wav" id="6_dbr0o"]
+[ext_resource type="AudioStream" uid="uid://dfinugm7brwt0" path="res://Assets/SFX/PasGeant/pasGeant2.wav" id="7_8h50c"]
+[ext_resource type="AudioStream" uid="uid://bff7mabukuqfk" path="res://Assets/SFX/PasGeant/pasGeant3.wav" id="8_a53hm"]
+[ext_resource type="AudioStream" uid="uid://d3xxg7iyrqqxj" path="res://Assets/SFX/PasGeant/pasGeant4.wav" id="9_ox3ms"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_817ev")
+"texture": ExtResource("2_71t41")
 }],
 "loop": true,
 "name": &"dead",
@@ -18,16 +23,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ljjs7")
+"texture": ExtResource("3_w84re")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3fym"]
 radius = 290.0
-height = 2437.94
+height = 3537.57
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0o0l"]
 radius = 248.798
@@ -70,24 +75,97 @@ tracks/2/keys = {
 "update": 1,
 "values": [&"default"]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FootstepsL:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_f1tvt"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1020, -1350), Vector2(1020, -1450)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FootstepsL:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h1j1"]
 _data = {
 "RESET": SubResource("Animation_117ud"),
-"jmj_fall": ExtResource("4_qb8ad")
+"jmj_fall": ExtResource("4_qb8ad"),
+"run": SubResource("Animation_f1tvt")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tpqqo"]
+random_pitch = 1.18
+streams_count = 4
+stream_0/stream = ExtResource("6_dbr0o")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_8h50c")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_a53hm")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_ox3ms")
+stream_3/weight = 1.0
 
 [node name="Enemy" type="Node2D"]
 position = Vector2(35, 802)
 script = ExtResource("1_ht07j")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1039.35, -2527.6)
+scale = Vector2(2.74083, 2.33155)
+texture = ExtResource("2_56f5a")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(654, -902)
+position = Vector2(1020, -1400)
 scale = Vector2(2.74083, 2.33155)
 sprite_frames = SubResource("SpriteFrames_olgp5")
-flip_h = true
+offset = Vector2(2.08165e-12, 2.06)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+visible = false
 position = Vector2(-182.426, -241.899)
 scale = Vector2(3.25517, 4.12815)
 texture = ExtResource("3_liuju")
@@ -99,12 +177,25 @@ collision_layer = 2
 [node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(588, -738)
 rotation = 0.238471
+scale = Vector2(1, 0.582974)
 shape = SubResource("CapsuleShape2D_l3fym")
 
 [node name="HitboxShape2" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(196, -728)
+position = Vector2(505, -1048)
 rotation = 0.378885
 scale = Vector2(0.906202, 0.222619)
+shape = SubResource("CapsuleShape2D_l3fym")
+
+[node name="HitboxShape3" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1052, -2093)
+rotation = -0.034379
+scale = Vector2(3.02357, 0.222619)
+shape = SubResource("CapsuleShape2D_l3fym")
+
+[node name="HitboxShape4" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2055, -2550)
+rotation = -0.034379
+scale = Vector2(1.21639, 0.222619)
 shape = SubResource("CapsuleShape2D_l3fym")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
@@ -117,7 +208,7 @@ position = Vector2(-71, -367)
 collision_layer = 4
 
 [node name="TickleShape" type="CollisionShape2D" parent="Tickle"]
-position = Vector2(241, -1101)
+position = Vector2(327, -1075)
 shape = SubResource("CircleShape2D_w0o0l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -129,6 +220,10 @@ libraries = {
 [node name="TickleSound" type="AudioStreamPlayer2D" parent="."]
 visible = false
 max_distance = 20000.0
+
+[node name="FootstepsL" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tpqqo")
+pitch_scale = 0.81
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

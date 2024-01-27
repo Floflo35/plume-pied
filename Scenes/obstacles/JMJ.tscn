@@ -50,9 +50,11 @@ rotation = -0.0872665
 script = ExtResource("1_wp2nd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(375.75, -781.5)
+position = Vector2(654, -644.286)
+rotation = 0.843877
 scale = Vector2(6.91732, 5.88438)
 sprite_frames = SubResource("SpriteFrames_olgp5")
+animation = &"dead"
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(2, 0)
