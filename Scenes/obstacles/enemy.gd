@@ -28,8 +28,7 @@ func _on_hitbox_body_entered(body):
 
 
 func _on_tickle_body_entered(body):
-	print("LOL")
-	$TickleSound.playing = true
+	#print("LOL")
 	$AnimationPlayer.active = true
 	$AnimationPlayer.play(fall_anim)
 	$Sprite/Tickle.set_deferred("monitoring", false)
@@ -40,7 +39,7 @@ func _on_tickle_body_entered(body):
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	print("I see you")
+	#print("I see you")
 	current_speed = speed
 
 
