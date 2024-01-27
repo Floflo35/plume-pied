@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi78c72ctwqf8"]
+[gd_scene load_steps=6 format=3 uid="uid://0tkcvwmir85x"]
 
 [ext_resource type="Texture2D" uid="uid://dkpsifhbxb6g7" path="res://Assets/halo.png" id="2_75557"]
 
@@ -27,6 +27,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_p4vym"]
 resource_name = "blink"
@@ -39,10 +51,22 @@ tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.6),
 "transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.9), Color(1, 1, 1, 0), Color(1, 1, 1, 0.9)]
+"values": [Color(1, 1, 1, 0.788235), Color(1, 1, 1, 0.32549), Color(1, 1, 1, 0.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qukh1"]
