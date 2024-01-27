@@ -5,3 +5,4 @@ func _ready():
 
 func _process(delta):
 	$score_label.text = str(GameLogic.getScore())
+	$score_gauge.percentage = GameLogic.getPercentageScore()

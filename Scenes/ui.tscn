@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct404vm523tix"]
+[gd_scene load_steps=3 format=3 uid="uid://ct404vm523tix"]
 
 [ext_resource type="Script" path="res://Scenes/ui.gd" id="1_4gbp6"]
+[ext_resource type="PackedScene" uid="uid://dnl8yobuim857" path="res://Scenes/round_gauge.tscn" id="2_0qtgu"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -13,8 +14,11 @@ script = ExtResource("1_4gbp6")
 
 [node name="score_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 14.0
-offset_right = 61.0
-offset_bottom = 37.0
+offset_left = 103.0
+offset_top = 948.0
+offset_right = 143.0
+offset_bottom = 971.0
 text = "_"
+
+[node name="score_gauge" parent="." instance=ExtResource("2_0qtgu")]
+position = Vector2(121, 956)
