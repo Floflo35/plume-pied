@@ -31,8 +31,15 @@ attenuation = 1e-05
 
 [node name="GuiliSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4kuoj")
+pitch_scale = 1.19
+max_distance = 20000.0
 attenuation = 1e-05
+panning_strength = 0.0
 
 [node name="FlySound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_fq0ly")
+volume_db = 1.009
+max_distance = 20000.0
 attenuation = 1e-05
+max_polyphony = 3
+panning_strength = 0.0
