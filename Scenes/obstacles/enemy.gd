@@ -5,10 +5,11 @@ extends Node2D
 signal hit_player
 signal tickled
 
-var fall_anim = 'jmj_fall'
+var fall_anim = "jmj_fall"
 
 func _ready():
 	pass
+	
 	
 func _process(delta):
 	position.x += delta * speed
@@ -19,8 +20,19 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 	
 	
 	
-func _on_tickle_area_entered(area):
-	print("LOL")
+	
+func _on_hitbox_body_entered(body):
+	#print("ouch")
+	$Tickle/TickleShape.set_deferred("disabled", true)
+	$Hitbox/HitboxShape.set_deferred("disabled", true)
+	GameLogic.obstacle_hit(body)
+
+
+func _on_tickle_body_entered(body):
+	#print("LOL")
 	$TickleSound.playing = true
 	$AnimationPlayer.active = true
-	$AnimationPlayer.assigned_animation = fall_anim
+	$AnimationPlayer.play("jmj_fall")
+	$Tickle/TickleShape.set_deferred("disabled", true)
+	$Hitbox/HitboxShape.set_deferred("disabled", true)
+	GameLogic.chatouille_hit(body)

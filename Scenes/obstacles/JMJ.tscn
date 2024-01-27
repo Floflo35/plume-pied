@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_wp2nd"]
 [ext_resource type="Texture2D" uid="uid://oa53y473btlf" path="res://Assets/2D-art/jmjsmall.png" id="2_urcv3"]
-[ext_resource type="AudioStream" uid="uid://c6lysdys82xlb" path="res://Assets/SFX/guili.wav" id="3_ep40y"]
+[ext_resource type="Animation" uid="uid://beq5dxf4fqrvd" path="res://Assets/Animations/jmj_fall.res" id="3_3q2fb"]
+[ext_resource type="Texture2D" uid="uid://cold2gqwmil7h" path="res://Assets/chatouilles/pizza.png" id="3_bqsa3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
@@ -27,60 +28,20 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(35, 802)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_73cvn"]
-resource_name = "jmj_fall"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(35, 802), Vector2(35, 2500)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.9251]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h1j1"]
 _data = {
 "RESET": SubResource("Animation_117ud"),
-"jmj_fall": SubResource("Animation_73cvn")
+"jmj_fall": ExtResource("3_3q2fb")
 }
 
 [node name="JMJ" type="Node2D"]
@@ -97,7 +58,7 @@ position = Vector2(2, 0)
 collision_layer = 2
 
 [node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(333, -712)
+position = Vector2(492, -723)
 shape = SubResource("CapsuleShape2D_l3fym")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
@@ -109,17 +70,25 @@ scale = Vector2(139.9, 105.4)
 collision_layer = 4
 
 [node name="TickleShape" type="CollisionShape2D" parent="Tickle"]
-position = Vector2(166, -1119)
+position = Vector2(241, -1101)
 shape = SubResource("CircleShape2D_w0o0l")
 
+[node name="Sprite2D" type="Sprite2D" parent="Tickle"]
+position = Vector2(225, -1099)
+scale = Vector2(8.92187, 9.625)
+texture = ExtResource("3_bqsa3")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_6h1j1")
 }
 
 [node name="TickleSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ep40y")
+visible = false
 max_distance = 20000.0
 
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="area_entered" from="Tickle" to="." method="_on_tickle_area_entered"]
+[connection signal="body_entered" from="Tickle" to="." method="_on_tickle_body_entered"]
