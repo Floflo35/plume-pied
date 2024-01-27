@@ -15,14 +15,7 @@ func _ready():
 	
 func _process(delta):
 	position.x += delta * speed
-	
 
-func _on_visible_on_screen_enabler_2d_screen_exited():
-	#queue_free()
-	pass
-	
-	
-	
 	
 func _on_hitbox_body_entered(body):
 	#print("ouch")

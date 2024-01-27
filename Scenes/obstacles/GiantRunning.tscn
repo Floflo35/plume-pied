@@ -160,7 +160,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Sprite/Halo:visible")
+tracks/9/path = NodePath("Sprite/Tickle/TickleShape/Halo:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -249,7 +249,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite/Halo:visible")
+tracks/5/path = NodePath("Sprite/Tickle/TickleShape/Halo:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -284,19 +284,16 @@ script = ExtResource("1_f4kb5")
 speed = -200
 
 [node name="Axe" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
-position = Vector2(1039.35, 0)
-rotation = 2.00887
+position = Vector2(1039.35, -2527.6)
 scale = Vector2(2.74083, 2.33155)
 texture = ExtResource("2_o07l4")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(1020, -181.425)
-rotation = 1.41106
+position = Vector2(1020, -1400)
 scale = Vector2(2.74083, 2.33155)
 sprite_frames = SubResource("SpriteFrames_olgp5")
-animation = &"dead"
-frame = 1
 offset = Vector2(2.08165e-12, 2.06)
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
@@ -331,20 +328,14 @@ collision_layer = 4
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("CircleShape2D_w0o0l")
 
-[node name="Halo" parent="Sprite" instance=ExtResource("5_khm3r")]
-position = Vector2(-321.071, -2.14447)
-scale = Vector2(0.364853, 0.428899)
+[node name="Halo" parent="Sprite/Tickle/TickleShape" instance=ExtResource("5_khm3r")]
+position = Vector2(0, 50.0001)
 
 [node name="Pizza" type="Sprite2D" parent="Sprite"]
 visible = false
 position = Vector2(-182.426, -241.899)
 scale = Vector2(3.25517, 4.12815)
 texture = ExtResource("6_dvc3c")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-show_behind_parent = true
-position = Vector2(416.5, -1381)
-scale = Vector2(208.55, 167)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -368,4 +359,3 @@ volume_db = 9.036
 [connection signal="body_entered" from="Sprite/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Sprite/Tickle" to="." method="_on_tickle_area_entered"]
 [connection signal="body_entered" from="Sprite/Tickle" to="." method="_on_tickle_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
