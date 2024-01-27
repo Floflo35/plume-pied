@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://1e8aukd75ks"]
+
+[ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_h6x5s"]
+[ext_resource type="Texture2D" uid="uid://bp0s74quq7ilo" path="res://Assets/2D-art/bat_placeholder.png" id="2_4u28e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nelve"]
+radius = 88.0
+height = 325.807
+
+[sub_resource type="Animation" id="Animation_gfq2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nplm4"]
+resource_name = "bat"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.261799, 0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgot0"]
+_data = {
+"RESET": SubResource("Animation_gfq2t"),
+"bat": SubResource("Animation_nplm4")
+}
+
+[node name="Bat" type="Node2D"]
+script = ExtResource("1_h6x5s")
+base_anim = "bat"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(1, -67)
+texture = ExtResource("2_4u28e")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(4.16329e-12, 4.16329e-12)
+collision_layer = 2
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 25)
+rotation = 1.5708
+scale = Vector2(1, 1.24)
+shape = SubResource("CapsuleShape2D_nelve")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lgot0")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(32.62, 32.62)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
