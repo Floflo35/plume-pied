@@ -61,7 +61,7 @@ speed = -500
 
 [node name="Background1" parent="." instance=ExtResource("4_r2co1")]
 show_behind_parent = true
-position = Vector2(3619, -26)
+position = Vector2(3619, -20)
 speed = -200
 
 [node name="GiantRolling" parent="." instance=ExtResource("5_6clj3")]
