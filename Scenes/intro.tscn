@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7v66jhfatr6f"]
+[gd_scene load_steps=12 format=3 uid="uid://b7v66jhfatr6f"]
 
 [ext_resource type="Script" path="res://Scenes/intro.gd" id="1_6ye4r"]
 [ext_resource type="Texture2D" uid="uid://br4qam4mwvob" path="res://Assets/2D-art/Envir/room background.png" id="2_cxiuf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctb1tf8m5hf4" path="res://Assets/2D-art/Géants/Geant_Vener.png" id="5_xgh5y"]
 [ext_resource type="Texture2D" uid="uid://4kw8u8hrtk3l" path="res://Assets/2D-art/Plume/plume_screen_2.png" id="7_6gck0"]
 [ext_resource type="Texture2D" uid="uid://bwhjkk67khtcl" path="res://Assets/2D-art/UI/text button.png" id="8_beaqo"]
+[ext_resource type="AudioStream" uid="uid://ccdi36533i0m6" path="res://Assets/SFX/niveau2Interieur/ambianceInterieur.wav" id="9_1cyxv"]
 
 [sub_resource type="Animation" id="Animation_5e080"]
 resource_name = "fade_in"
@@ -216,5 +217,9 @@ Kirryu - 2D Art
 Pul - Programmer
 Replicant Flo - Music Composer"
 vertical_alignment = 1
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_1cyxv")
+autoplay = true
 
 [connection signal="button_up" from="Control2/Button" to="." method="_on_button_button_up"]
