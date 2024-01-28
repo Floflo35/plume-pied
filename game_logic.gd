@@ -1,14 +1,15 @@
 extends Node
 
 signal game_started
-signal game_stopped
+signal game_loose
+signal game_win
 signal hit
 signal chatouille
 signal fly
 signal level_changed(level)
 
 const MAX_SCORE = 10.0
-const INITIAL_SCORE = 5.0
+const INITIAL_SCORE = 9.9
 var score
 
 const AUTO_DECREASE_SPEED = 0.1;
@@ -17,7 +18,7 @@ const DELAY_BEFORE_INTR0 = 5;
 var state
 const STATE_INTRO = 'state_intro'
 const STATE_PLAY = 'state_play'
-const STATE_GAMEOVER = 'state_game_over'
+const STATE_PAUSE = 'state_pause'
 
 var current_scene = null
 var scene_intro = "res://Scenes/intro.tscn"
@@ -36,6 +37,11 @@ func _process(delta):
 		
 	if state == STATE_PLAY:
 		updateScore(-1 * delta * AUTO_DECREASE_SPEED)
+		
+		if (current_level == 2 && score >= MAX_SCORE - 0.1):
+			launch_victory()
+			return
+		
 		if Input.is_action_just_pressed("up"):
 			fly.emit()
 		
@@ -45,30 +51,35 @@ func _process(delta):
 		if Input.is_action_just_pressed("2"):
 			change_level(2)
 		
-	if state == STATE_GAMEOVER:
+	if state == STATE_PAUSE:
 		pass
 
 # --- events
 func start_game():	
-	print("start_game")
 	state = STATE_PLAY
 	game_started.emit()
 	goto_scene(scene_main)
 
 func end_game():
-	print("end_game")
-	state = STATE_GAMEOVER
-	game_stopped.emit()
+	state = STATE_PAUSE
+	game_loose.emit()
 	
 	var timer = get_tree().create_timer(DELAY_BEFORE_INTR0)  
 	timer.timeout.connect(reset_game)
 
 func reset_game():
-	print("reset_game")
 	state = STATE_INTRO
 	score = INITIAL_SCORE
 	goto_scene(scene_intro)
 	change_level(1)
+
+func launch_victory():
+	state = STATE_PAUSE
+	score = MAX_SCORE
+	game_win.emit()
+	
+	var timer = get_tree().create_timer(DELAY_BEFORE_INTR0)  
+	timer.timeout.connect(reset_game)
 
 func obstacle_hit(_node):
 	if state == STATE_PLAY:

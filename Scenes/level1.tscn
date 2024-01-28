@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc2y5gu3pa700"]
+[gd_scene load_steps=10 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
 [ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://b3jjjb21yu3n8" path="res://arbre_001.tscn" id="7_4aqgj"]
 [ext_resource type="PackedScene" uid="uid://1e8aukd75ks" path="res://Scenes/obstacles/bat.tscn" id="8_lyos1"]
 [ext_resource type="PackedScene" uid="uid://cqixy5bjnl8xc" path="res://ronce.tscn" id="8_pr2s5"]
+[ext_resource type="AudioStream" uid="uid://b2uiy074avcvh" path="res://Assets/Music/Plume_loop.wav" id="9_d5d3g"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3ug8i")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Ambiance" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-67, 0)
 stream = ExtResource("3_mcxun")
 autoplay = true
 max_distance = 1e+11
@@ -23,32 +25,160 @@ position = Vector2(1875, 1411)
 scale = Vector2(0.55, 0.55)
 speed = -500
 
+[node name="GiantRunning7" parent="." instance=ExtResource("5_d3xrm")]
+position = Vector2(6483, 1725)
+scale = Vector2(0.55, 0.55)
+speed = -500
+
 [node name="GiantRunning2" parent="." instance=ExtResource("5_d3xrm")]
 modulate = Color(0.192157, 0.482353, 0.133333, 1)
 position = Vector2(2332, 1208)
 scale = Vector2(0.55, 0.55)
 speed = -500
 
+[node name="GiantRunning3" parent="." instance=ExtResource("5_d3xrm")]
+position = Vector2(3402, 1626)
+scale = Vector2(0.55, 0.55)
+speed = -500
+
+[node name="GiantRunning4" parent="." instance=ExtResource("5_d3xrm")]
+modulate = Color(1, 0.737255, 0.258824, 1)
+position = Vector2(4108, 1350)
+scale = Vector2(0.55, 0.55)
+speed = -500
+
+[node name="GiantRunning5" parent="." instance=ExtResource("5_d3xrm")]
+position = Vector2(4781, -649)
+rotation = -3.13085
+scale = Vector2(-0.55, 0.55)
+speed = -500
+
+[node name="GiantRunning6" parent="." instance=ExtResource("5_d3xrm")]
+position = Vector2(4781, -649)
+rotation = -3.13085
+scale = Vector2(-0.55, 0.55)
+speed = -500
+
 [node name="Background1" parent="." instance=ExtResource("4_r2co1")]
 show_behind_parent = true
+position = Vector2(3619, -26)
+speed = -200
 
 [node name="GiantRolling" parent="." instance=ExtResource("5_6clj3")]
-position = Vector2(3612, 1048)
+position = Vector2(5489, 1223)
 scale = Vector2(0.55, 0.55)
+speed = -1500
 
 [node name="Arbre_001" parent="." instance=ExtResource("7_4aqgj")]
 z_index = -100
 position = Vector2(2475, 639)
-speed = -100
+speed = -200
 
 [node name="Arbre_002" parent="." instance=ExtResource("7_4aqgj")]
 z_index = -100
 position = Vector2(4147, 782)
-speed = -100
+speed = -200
+
+[node name="Arbre_003" parent="." instance=ExtResource("7_4aqgj")]
+z_index = -100
+position = Vector2(5058, 668)
+speed = -200
+
+[node name="Arbre_004" parent="." instance=ExtResource("7_4aqgj")]
+z_index = -100
+position = Vector2(5418, 470)
+speed = -200
 
 [node name="Bat" parent="." instance=ExtResource("8_lyos1")]
 position = Vector2(3156, 331)
 
+[node name="Bat2" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(3506, 182)
+
+[node name="Bat3" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(3754, 170)
+
+[node name="Bat4" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(4440, 82)
+
+[node name="Bat5" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(4460, 317)
+
+[node name="Bat6" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(5005, 95)
+
+[node name="Bat7" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(6704, 161)
+
 [node name="Ronce" parent="." instance=ExtResource("8_pr2s5")]
 position = Vector2(3041, 1047)
 speed = -400
+
+[node name="Ronce2" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(3747, 1256)
+speed = -400
+
+[node name="Ronce3" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4379, 1088)
+speed = -400
+
+[node name="Ronce4" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4675, 1075)
+speed = -400
+
+[node name="Ronce5" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4917, 1075)
+speed = -400
+
+[node name="Ronce6" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5233, 1095)
+speed = -400
+
+[node name="Ronce7" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5563, 1088)
+speed = -400
+
+[node name="Ronce8" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5471, 983)
+speed = -400
+
+[node name="Ronce9" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4810, 913)
+speed = -400
+
+[node name="Ronce10" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5234, 785)
+speed = -400
+
+[node name="Ronce11" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4590, 1198)
+speed = -400
+
+[node name="Ronce16" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4590, 1198)
+speed = -400
+
+[node name="Ronce17" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4590, 1198)
+speed = -400
+
+[node name="Ronce12" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5143, 905)
+speed = -400
+
+[node name="Ronce13" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5341, 1080)
+speed = -400
+
+[node name="Ronce14" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(5060, 1199)
+speed = -400
+
+[node name="Ronce15" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(4128, 1294)
+speed = -400
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_d5d3g")
+volume_db = 3.0
+autoplay = true
