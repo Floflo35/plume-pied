@@ -10,6 +10,9 @@ func _ready():
 
 
 func _process(delta):
+	if !GameLogic.is_playing():
+		return
+	
 	$Wheel.rotation += delta * rotation_speed
 	$WheelShadow.rotation += delta * rotation_speed
 	$BossGuy.rotation += delta * rotation_speed

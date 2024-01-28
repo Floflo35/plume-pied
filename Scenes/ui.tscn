@@ -265,7 +265,6 @@ theme_override_font_sizes/font_size = 80
 text = "Game Over"
 
 [node name="Victory" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -275,11 +274,11 @@ anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -30.0
 offset_right = 20.0
-offset_bottom = 9.99976
+offset_bottom = 9.99969
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0872665
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.4, 1.4)
 
 [node name="Label" type="Label" parent="Victory"]
 layout_mode = 1
@@ -320,7 +319,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="masque" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
