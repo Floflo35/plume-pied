@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1oo85gqtg4sx"
-path="res://.godot/imported/ronce_001.png-a06baf9450f75dc7db9541b45bdcfdaf.ctex"
+uid="uid://4kw8u8hrtk3l"
+path="res://.godot/imported/plume_screen_2.png-442d2ba00db2a751707e631c3d7a7550.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/obstacles/ronce_001.png"
-dest_files=["res://.godot/imported/ronce_001.png-a06baf9450f75dc7db9541b45bdcfdaf.ctex"]
+source_file="res://Assets/2D-art/Plume/plume_screen_2.png"
+dest_files=["res://.godot/imported/plume_screen_2.png-442d2ba00db2a751707e631c3d7a7550.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5xvqeephrwv5"
-path="res://.godot/imported/head.png-c4590cfaa74a24a72e427a102026b551.ctex"
+uid="uid://bq06kkuaaj2pq"
+path="res://.godot/imported/plume.svg-af7eacbc5398c33e50aafbdcf8de7089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/obstacles/head.png"
-dest_files=["res://.godot/imported/head.png-c4590cfaa74a24a72e427a102026b551.ctex"]
+source_file="res://Assets/2D-art/Plume/plume.svg"
+dest_files=["res://.godot/imported/plume.svg-af7eacbc5398c33e50aafbdcf8de7089.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

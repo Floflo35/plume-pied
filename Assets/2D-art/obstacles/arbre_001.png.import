@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq06kkuaaj2pq"
-path="res://.godot/imported/plume.svg-c8d670f8cae70f9936465525ef8d086d.ctex"
+uid="uid://c6yfxgaqpo0kf"
+path="res://.godot/imported/arbre_001.png-50228df6caea68ac4230c08e4984d639.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/plume.svg"
-dest_files=["res://.godot/imported/plume.svg-c8d670f8cae70f9936465525ef8d086d.ctex"]
+source_file="res://Assets/2D-art/obstacles/arbre_001.png"
+dest_files=["res://.godot/imported/arbre_001.png-50228df6caea68ac4230c08e4984d639.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

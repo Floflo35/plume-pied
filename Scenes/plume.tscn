@@ -1,7 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5vboh0k8p6ac"]
 
-[ext_resource type="Texture2D" uid="uid://dm7waaxf5l82m" path="res://Assets/plume.png" id="1_11rw6"]
+[ext_resource type="Texture2D" uid="uid://dm7waaxf5l82m" path="res://Assets/2D-art/Plume/plume.png" id="1_11rw6"]
 [ext_resource type="Script" path="res://Scenes/plume.gd" id="1_prk4g"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u1467"]
 animations = [{

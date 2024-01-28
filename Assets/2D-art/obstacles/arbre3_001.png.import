@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3j8uee4aj1g2"
-path="res://.godot/imported/Sol_Fond_001.png-f82158ca11576c559b235e96bf381465.ctex"
+uid="uid://cvit6mlhcu400"
+path="res://.godot/imported/arbre3_001.png-f01ebaf463fe90a19c73dfbc6a32ef38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/obstacles/Sol_Fond_001.png"
-dest_files=["res://.godot/imported/Sol_Fond_001.png-f82158ca11576c559b235e96bf381465.ctex"]
+source_file="res://Assets/2D-art/obstacles/arbre3_001.png"
+dest_files=["res://.godot/imported/arbre3_001.png-f01ebaf463fe90a19c73dfbc6a32ef38.ctex"]
 
 [params]
 

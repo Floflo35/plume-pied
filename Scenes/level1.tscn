@@ -19,7 +19,13 @@ max_distance = 1e+11
 attenuation = 1e-05
 
 [node name="GiantRunning" parent="." instance=ExtResource("5_d3xrm")]
-position = Vector2(2365, 1426)
+position = Vector2(1875, 1411)
+scale = Vector2(0.55, 0.55)
+speed = -500
+
+[node name="GiantRunning2" parent="." instance=ExtResource("5_d3xrm")]
+modulate = Color(0.192157, 0.482353, 0.133333, 1)
+position = Vector2(2332, 1208)
 scale = Vector2(0.55, 0.55)
 speed = -500
 
@@ -27,7 +33,7 @@ speed = -500
 show_behind_parent = true
 
 [node name="GiantRolling" parent="." instance=ExtResource("5_6clj3")]
-position = Vector2(4042, 1324)
+position = Vector2(3612, 1048)
 scale = Vector2(0.55, 0.55)
 
 [node name="Arbre_001" parent="." instance=ExtResource("7_4aqgj")]
@@ -41,8 +47,8 @@ position = Vector2(4147, 782)
 speed = -100
 
 [node name="Bat" parent="." instance=ExtResource("8_lyos1")]
-position = Vector2(3422, 229)
+position = Vector2(3156, 331)
 
 [node name="Ronce" parent="." instance=ExtResource("8_pr2s5")]
-position = Vector2(1892, 1107)
-speed = -150
+position = Vector2(3041, 1047)
+speed = -400
