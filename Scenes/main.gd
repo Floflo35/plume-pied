@@ -7,7 +7,7 @@ const levels = [
 
 const plume_positions = [
 	Vector2(548, 303),
-	Vector2(960, 540),
+	Vector2(960, 740),
 ]
 
 var current_level_scene

@@ -8,7 +8,7 @@ var is_active = true
 var fly_on_next_physic_frame = false
 
 const MIN_Y = 30
-const MAX_Y = 1080
+const MAX_Y = 1250
 const BOUND_ZONE = 50
 const rejection_force = 0.01
 
