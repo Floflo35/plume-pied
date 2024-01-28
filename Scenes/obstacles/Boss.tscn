@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://des1aj0cjht7r"]
+[gd_scene load_steps=11 format=3 uid="uid://des1aj0cjht7r"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/Boss.gd" id="1_jerpf"]
 [ext_resource type="Texture2D" uid="uid://bhqf4jcordq0e" path="res://Assets/2D-art/BossFight/torture_wheel_alone.png" id="2_w7jlm"]
 [ext_resource type="Texture2D" uid="uid://c003jddl7ggce" path="res://Assets/2D-art/BossFight/Geant_2_Resist.png" id="3_0bitf"]
 [ext_resource type="PackedScene" uid="uid://0tkcvwmir85x" path="res://Scenes/ui/halo.tscn" id="4_bterd"]
+[ext_resource type="AudioStream" uid="uid://cq3lsgn6cut2f" path="res://Assets/SFX/RireBoss5.wav" id="5_cy8cb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j23eu"]
 
@@ -137,6 +138,9 @@ shape = SubResource("CapsuleShape2D_m0me4")
 position = Vector2(98, -45)
 rotation = -2.31759
 shape = SubResource("CapsuleShape2D_m0me4")
+
+[node name="LaughSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cy8cb")
 
 [connection signal="area_entered" from="BossGuy/Tickle0" to="." method="_on_tickle_0_area_entered"]
 [connection signal="body_entered" from="BossGuy/Tickle0" to="." method="_on_tickle_0_body_entered"]

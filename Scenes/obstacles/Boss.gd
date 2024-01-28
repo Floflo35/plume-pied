@@ -14,11 +14,11 @@ func _process(delta):
 	$WheelShadow.rotation += delta * rotation_speed
 	$BossGuy.rotation += delta * rotation_speed
 	if score == 4:
-		GameLogic.end_game()
+		GameLogic.launch_victory()
 
 
 func _on_tickle_0_body_entered(body):
-	print("TICKLE")
+	$LaughSound.playing = true
 	rotation_speed = rotation_speed * 1.15
 	$BossGuy/Tickle0.set_deferred("monitoring", false)
 	$BossGuy/Tickle0.set_deferred("visible", false)
@@ -27,7 +27,7 @@ func _on_tickle_0_body_entered(body):
 
 
 func _on_tickle_1_body_entered(body):
-	print("TICKLE")
+	$LaughSound.playing = true
 	rotation_speed = rotation_speed * 1.15
 	$BossGuy/Tickle1.set_deferred("monitoring", false)
 	$BossGuy/Tickle1.set_deferred("visible", false)
@@ -36,7 +36,7 @@ func _on_tickle_1_body_entered(body):
 
 
 func _on_tickle_2_body_entered(body):
-	print("TICKLE")
+	$LaughSound.playing = true
 	rotation_speed = rotation_speed * 1.15
 	$BossGuy/Tickle2.set_deferred("monitoring", false)
 	$BossGuy/Tickle2.set_deferred("visible", false)
@@ -45,7 +45,7 @@ func _on_tickle_2_body_entered(body):
 
 
 func _on_tickle_3_body_entered(body):
-	print("TICKLE")
+	$LaughSound.playing = true
 	rotation_speed = rotation_speed * 1.15
 	$BossGuy/Tickle3.set_deferred("monitoring", false)
 	$BossGuy/Tickle3.set_deferred("visible", false)
