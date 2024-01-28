@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dljtgvdn3ba7m"]
+[gd_scene load_steps=24 format=3 uid="uid://dljtgvdn3ba7m"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_eilre"]
 [ext_resource type="Texture2D" uid="uid://dalkob5yhlutv" path="res://Assets/2D-art/axe.png" id="2_d52uw"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bff7mabukuqfk" path="res://Assets/SFX/PasGeant/pasGeant3.wav" id="10_5d4g3"]
 [ext_resource type="AudioStream" uid="uid://d3xxg7iyrqqxj" path="res://Assets/SFX/PasGeant/pasGeant4.wav" id="11_br0y4"]
 [ext_resource type="AudioStream" uid="uid://bif30wi4xxd1l" path="res://Assets/SFX/RiresGeants/sonGeant1.wav" id="12_clt7d"]
+[ext_resource type="AudioStream" uid="uid://bkvau8c8b4h70" path="res://Assets/SFX/RollAttack.wav" id="14_xwgq5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
@@ -158,7 +159,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("TickleSound:playing")
+tracks/9/path = NodePath("RollAttack:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -166,6 +167,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RollAttack:pitch_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("RollAttack:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_sdbtp"]
@@ -280,6 +305,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RollAttack:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pvch6"]
 resource_name = "roll_die"
@@ -322,7 +359,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("Footsteps:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -394,7 +431,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/path = NodePath("TickleSound:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -403,6 +440,42 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RollAttack:pitch_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.56]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("RollAttack:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.13]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("RollAttack:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f1tvt"]
@@ -589,6 +662,10 @@ volume_db = 9.036
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(461, -674)
 scale = Vector2(9.2, 9.2)
+
+[node name="RollAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_xwgq5")
+attenuation = 0.329877
 
 [connection signal="body_entered" from="Sprite/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Sprite/Tickle" to="." method="_on_tickle_area_entered"]

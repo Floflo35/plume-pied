@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwm5sat5mcnpy"]
+
+[ext_resource type="Script" path="res://mob_spawner.gd" id="1_u50gl"]
+[ext_resource type="PackedScene" uid="uid://1e8aukd75ks" path="res://Scenes/obstacles/bat.tscn" id="2_d8eo4"]
+
+[node name="MobSpawnerTimer" type="Node"]
+script = ExtResource("1_u50gl")
+mob_scene = ExtResource("2_d8eo4")
+position = Vector2(2200, 500)
+timer_min = 3.0
+timer_max = 7.0
+y_min = 0
+y_max = 1000
+speed_min = -500
+speed_max = -300

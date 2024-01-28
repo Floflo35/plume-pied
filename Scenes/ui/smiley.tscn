@@ -64,34 +64,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_rrprx"]
-resource_name = "hit"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("halo:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 1.5),
-"transitions": PackedFloat32Array(2, 1, 1),
-"update": 0,
-"values": [Vector2(0.38, 0.38), Vector2(0.6, 0.6), Vector2(0.38, 0.38)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("halo:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 1.5),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [Color(1, 0.388235, 0.419608, 0), Color(1, 0.388235, 0.419608, 0.803922), Color(1, 0.388235, 0.419608, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_6gijp"]
 resource_name = "chatouille"
 length = 1.5
@@ -118,6 +90,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
 "values": [Color(0, 0.741176, 0.435294, 0), Color(0, 0.741176, 0.435294, 0.803922), Color(0, 0.741176, 0.435294, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rrprx"]
+resource_name = "hit"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("halo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(0.38, 0.38), Vector2(0.6, 0.6), Vector2(0.38, 0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("halo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 0.388235, 0.419608, 0), Color(1, 0.388235, 0.419608, 0.803922), Color(1, 0.388235, 0.419608, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_00f4y"]
