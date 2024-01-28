@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqixy5bjnl8xc"]
+
+[ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_unco1"]
+[ext_resource type="Texture2D" uid="uid://d1xf4otvintpv" path="res://Assets/2D-art/ronce_002.png" id="2_7kykk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_js573"]
+radius = 43.9114
+height = 107.044
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugcdw"]
+
+[node name="Ronce" type="Node2D"]
+script = ExtResource("1_unco1")
+speed = -150
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_7kykk")
+
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+collision_layer = 2
+
+[node name="HitbxShape" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(-35, -146)
+scale = Vector2(5.42, 5.42)
+shape = SubResource("CapsuleShape2D_js573")
+
+[node name="HitbxShape2" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(202, 8.00001)
+rotation = 2.85622
+scale = Vector2(5.42, 5.42)
+shape = SubResource("RectangleShape2D_ugcdw")
+
+[node name="HitbxShape3" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(-128, -398)
+rotation = 5.62422
+scale = Vector2(5.42, 5.42)
+shape = SubResource("RectangleShape2D_ugcdw")
+
+[node name="HitbxShape4" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(237, -332)
+rotation = 0.584855
+scale = Vector2(5.42, 5.42)
+shape = SubResource("RectangleShape2D_ugcdw")
+
+[node name="HitbxShape5" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(209, -227)
+rotation = 1.74361
+scale = Vector2(5.42, 5.42)
+shape = SubResource("RectangleShape2D_ugcdw")
+
+[node name="HitbxShape6" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(-244, -111)
+rotation = 2.32621
+scale = Vector2(5.42, 5.42)
+shape = SubResource("RectangleShape2D_ugcdw")
+
+[node name="Tickle" type="Area2D" parent="Sprite"]
+collision_layer = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="Sprite/Hitbox" to="." method="_on_hitbox_body_entered"]
