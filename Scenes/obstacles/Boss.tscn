@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://des1aj0cjht7r"]
+[gd_scene load_steps=10 format=3 uid="uid://des1aj0cjht7r"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/Boss.gd" id="1_jerpf"]
 [ext_resource type="Texture2D" uid="uid://bhqf4jcordq0e" path="res://Assets/2D-art/BossFight/torture_wheel_alone.png" id="2_w7jlm"]
 [ext_resource type="Texture2D" uid="uid://c003jddl7ggce" path="res://Assets/2D-art/BossFight/Geant_2_Resist.png" id="3_0bitf"]
+[ext_resource type="PackedScene" uid="uid://0tkcvwmir85x" path="res://Scenes/ui/halo.tscn" id="4_bterd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j23eu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffr86"]
+size = Vector2(90, 89.1403)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xapt"]
+radius = 73.8876
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jxre"]
+radius = 163.003
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0me4"]
+radius = 45.9064
+height = 313.842
 
 [node name="Boss" type="Node2D"]
 position = Vector2(-4, 0)
@@ -10,6 +26,7 @@ script = ExtResource("1_jerpf")
 phase1_rotation_speed = 0.3
 
 [node name="Wheel" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("2_w7jlm")
 
 [node name="BossGuy" type="Sprite2D" parent="."]
@@ -17,3 +34,98 @@ position = Vector2(0, 24)
 scale = Vector2(0.694248, 0.694248)
 texture = ExtResource("3_0bitf")
 offset = Vector2(28.1106, 20.2082)
+
+[node name="Tickle0" type="Area2D" parent="BossGuy"]
+position = Vector2(-267.916, 512.785)
+collision_layer = 4
+
+[node name="TickleShape" type="CollisionShape2D" parent="BossGuy/Tickle0"]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_j23eu")
+
+[node name="Halo" parent="BossGuy/Tickle0/TickleShape" instance=ExtResource("4_bterd")]
+scale = Vector2(0.06, 0.06)
+
+[node name="Tickle1" type="Area2D" parent="BossGuy"]
+position = Vector2(279.439, 505.583)
+collision_layer = 4
+
+[node name="TickleShape" type="CollisionShape2D" parent="BossGuy/Tickle1"]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_j23eu")
+
+[node name="Halo" parent="BossGuy/Tickle1/TickleShape" instance=ExtResource("4_bterd")]
+scale = Vector2(0.06, 0.06)
+
+[node name="Tickle2" type="Area2D" parent="BossGuy"]
+position = Vector2(211.74, -72.0204)
+collision_layer = 4
+
+[node name="TickleShape" type="CollisionShape2D" parent="BossGuy/Tickle2"]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_j23eu")
+
+[node name="Halo" parent="BossGuy/Tickle2/TickleShape" instance=ExtResource("4_bterd")]
+scale = Vector2(0.06, 0.06)
+
+[node name="Tickle3" type="Area2D" parent="BossGuy"]
+position = Vector2(-184.372, 50.4143)
+scale = Vector2(1.46093, 2.53961)
+collision_layer = 4
+
+[node name="TickleShape" type="CollisionShape2D" parent="BossGuy/Tickle3"]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_j23eu")
+
+[node name="Halo" parent="BossGuy/Tickle3/TickleShape" instance=ExtResource("4_bterd")]
+scale = Vector2(0.06, 0.06)
+
+[node name="Hitbox" type="Area2D" parent="BossGuy"]
+position = Vector2(0, -34.5698)
+scale = Vector2(1.44041, 1.44041)
+collision_layer = 2
+
+[node name="HitboxShape" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(44.7004, -278.303)
+rotation = 0.149319
+shape = SubResource("RectangleShape2D_ffr86")
+
+[node name="HitboxShape2" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(20, -170)
+rotation = -0.0260252
+shape = SubResource("CircleShape2D_5xapt")
+
+[node name="HitboxShape3" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(12, 68)
+rotation = -0.0260252
+shape = SubResource("CircleShape2D_4jxre")
+
+[node name="HitboxShape4" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(-109, 211)
+rotation = 0.403686
+shape = SubResource("CapsuleShape2D_m0me4")
+
+[node name="HitboxShape5" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(102, 207)
+rotation = -0.473596
+shape = SubResource("CapsuleShape2D_m0me4")
+
+[node name="HitboxShape6" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(-78, -50)
+rotation = -0.817307
+shape = SubResource("CapsuleShape2D_m0me4")
+
+[node name="HitboxShape7" type="CollisionShape2D" parent="BossGuy/Hitbox"]
+position = Vector2(98, -45)
+rotation = -2.31759
+shape = SubResource("CapsuleShape2D_m0me4")
+
+[connection signal="area_entered" from="BossGuy/Tickle0" to="." method="_on_tickle_0_area_entered"]
+[connection signal="body_entered" from="BossGuy/Tickle0" to="." method="_on_tickle_0_body_entered"]
+[connection signal="area_entered" from="BossGuy/Tickle1" to="." method="_on_tickle_1_area_entered"]
+[connection signal="body_entered" from="BossGuy/Tickle1" to="." method="_on_tickle_1_body_entered"]
+[connection signal="area_entered" from="BossGuy/Tickle2" to="." method="_on_tickle_2_area_entered"]
+[connection signal="body_entered" from="BossGuy/Tickle2" to="." method="_on_tickle_2_body_entered"]
+[connection signal="area_entered" from="BossGuy/Tickle3" to="." method="_on_tickle_3_area_entered"]
+[connection signal="body_entered" from="BossGuy/Tickle3" to="." method="_on_tickle_3_body_entered"]
+[connection signal="body_entered" from="BossGuy/Hitbox" to="." method="_on_hitbox_body_entered"]
