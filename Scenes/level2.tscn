@@ -19,7 +19,7 @@ position = Vector2(984, -314)
 scale = Vector2(2.09847, 2.09847)
 
 [node name="SupportSprite" type="Sprite2D" parent="."]
-z_index = -10
+z_index = -70
 position = Vector2(996, -279)
 scale = Vector2(2.46282, 2.46282)
 texture = ExtResource("4_iwlav")

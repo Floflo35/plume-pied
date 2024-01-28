@@ -11,6 +11,7 @@ func _ready():
 
 func _process(delta):
 	$Wheel.rotation += delta * rotation_speed
+	$WheelShadow.rotation += delta * rotation_speed
 	$BossGuy.rotation += delta * rotation_speed
 	if score == 4:
 		GameLogic.end_game()
