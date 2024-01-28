@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_f4kb5"]
 [ext_resource type="Texture2D" uid="uid://dalkob5yhlutv" path="res://Assets/2D-art/axe.png" id="2_o07l4"]
-[ext_resource type="Texture2D" uid="uid://c423plmg10uoi" path="res://Assets/2D-art/Geant_Debut_Laugh.png" id="3_6gcj0"]
-[ext_resource type="Texture2D" uid="uid://cfpq45w4pxnaq" path="res://Assets/2D-art/Geant_Laugh_dark.png" id="3_s7gis"]
-[ext_resource type="Texture2D" uid="uid://dy61bluy780x4" path="res://Assets/2D-art/Geant_Debut_Laugh_dark.png" id="3_v424e"]
-[ext_resource type="Texture2D" uid="uid://bmjfllsw4rslm" path="res://Assets/2D-art/Geant_3.png" id="4_f5cfm"]
+[ext_resource type="Texture2D" uid="uid://c423plmg10uoi" path="res://Assets/2D-art/Géants/Geant_Debut_Laugh.png" id="3_6gcj0"]
+[ext_resource type="Texture2D" uid="uid://cfpq45w4pxnaq" path="res://Assets/2D-art/Géants/Geant_Laugh_dark.png" id="3_s7gis"]
+[ext_resource type="Texture2D" uid="uid://dy61bluy780x4" path="res://Assets/2D-art/Géants/Geant_Debut_Laugh_dark.png" id="3_v424e"]
+[ext_resource type="Texture2D" uid="uid://bmjfllsw4rslm" path="res://Assets/2D-art/Géants/Geant_3.png" id="4_f5cfm"]
 [ext_resource type="PackedScene" uid="uid://0tkcvwmir85x" path="res://Scenes/ui/halo.tscn" id="5_khm3r"]
 [ext_resource type="Texture2D" uid="uid://cold2gqwmil7h" path="res://Assets/chatouilles/pizza.png" id="6_dvc3c"]
 [ext_resource type="Animation" uid="uid://beq5dxf4fqrvd" path="res://Assets/Animations/jmj_fall.res" id="7_dsg7u"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://cwsy4ivnxds21" path="res://Assets/SFX/RiresGeants/sonGeant4,.wav" id="17_gksxj"]
 [ext_resource type="AudioStream" uid="uid://b4yur5j6w0r6" path="res://Assets/SFX/RiresGeants/sonGeant5.wav" id="18_d40vy"]
 [ext_resource type="AudioStream" uid="uid://bvnwhows12c5n" path="res://Assets/SFX/RiresGeants/sonGeant7.wav" id="19_l71i3"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{

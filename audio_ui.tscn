@@ -38,7 +38,8 @@ panning_strength = 0.0
 
 [node name="FlySound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_fq0ly")
-volume_db = 1.009
+volume_db = -1.501
+pitch_scale = 0.8
 max_distance = 20000.0
 attenuation = 1e-05
 max_polyphony = 3

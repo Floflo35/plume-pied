@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqixy5bjnl8xc"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_unco1"]
-[ext_resource type="Texture2D" uid="uid://d1xf4otvintpv" path="res://Assets/2D-art/ronce_002.png" id="2_7kykk"]
+[ext_resource type="Texture2D" uid="uid://d1xf4otvintpv" path="res://Assets/obstacles/ronce_002.png" id="2_7kykk"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_js573"]
 radius = 43.9114
@@ -59,4 +60,9 @@ collision_layer = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-10.5, -160.5)
+scale = Vector2(32.35, 31.85)
+
 [connection signal="body_entered" from="Sprite/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
