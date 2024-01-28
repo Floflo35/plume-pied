@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4xvlposdih4t"]
+[gd_scene load_steps=4 format=3 uid="uid://c4xvlposdih4t"]
 
 [ext_resource type="Script" path="res://BackgroundScroll.gd" id="1_x5qp7"]
 [ext_resource type="Texture2D" uid="uid://7q6cd5w2w4ie" path="res://Assets/2D-art/background.png" id="2_3nbod"]
+[ext_resource type="PackedScene" uid="uid://ms6admi10ujo" path="res://Scenes/donjon.tscn" id="3_1w3hb"]
 
 [node name="Background1" type="Node2D"]
 z_index = -1000
@@ -11,3 +12,6 @@ script = ExtResource("1_x5qp7")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1177, 565)
 texture = ExtResource("2_3nbod")
+
+[node name="Donjon" parent="." instance=ExtResource("3_1w3hb")]
+position = Vector2(4603, 565)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ms6admi10ujo"]
+
+[ext_resource type="Texture2D" uid="uid://6gu6un0a74ke" path="res://Assets/2D-art/Envir/Tour_Passage_Lvl2_fullRoom.png" id="1_c265t"]
+[ext_resource type="Script" path="res://Scenes/donjon.gd" id="1_gh5o1"]
+[ext_resource type="PackedScene" uid="uid://0tkcvwmir85x" path="res://Scenes/ui/halo.tscn" id="2_228ru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx17k"]
+size = Vector2(203, 1111)
+
+[node name="Donjon" type="Node2D"]
+script = ExtResource("1_gh5o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c265t")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-773.5, 7.5)
+shape = SubResource("RectangleShape2D_rx17k")
+
+[node name="Halo" parent="." instance=ExtResource("2_228ru")]
+position = Vector2(-770, -264)
+scale = Vector2(0.4, 0.7)
+
+[node name="Halo2" parent="." instance=ExtResource("2_228ru")]
+position = Vector2(-777, 57)
+scale = Vector2(0.4, 0.7)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

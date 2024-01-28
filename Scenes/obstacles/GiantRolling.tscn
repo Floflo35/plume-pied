@@ -20,7 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://b4yur5j6w0r6" path="res://Assets/SFX/RiresGeants/sonGeant5.wav" id="18_am0ym"]
 [ext_resource type="AudioStream" uid="uid://bvnwhows12c5n" path="res://Assets/SFX/RiresGeants/sonGeant7.wav" id="19_kd256"]
 
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
 "frames": [{
