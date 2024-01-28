@@ -29,6 +29,23 @@ phase1_rotation_speed = 0.3
 z_index = -1
 texture = ExtResource("2_w7jlm")
 
+[node name="WheelShadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.537255)
+z_index = -11
+position = Vector2(203.5, 218.25)
+scale = Vector2(1.09387, 1.12097)
+texture = ExtResource("2_w7jlm")
+
+[node name="BossGuy2" type="Sprite2D" parent="WheelShadow"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5.48897, 52.741)
+rotation = 2.98454
+scale = Vector2(0.719758, 0.712003)
+skew = -0.00356174
+texture = ExtResource("3_0bitf")
+offset = Vector2(28.1106, 20.2082)
+
 [node name="BossGuy" type="Sprite2D" parent="."]
 position = Vector2(0, 24)
 rotation = -3.30042
