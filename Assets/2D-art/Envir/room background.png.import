@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csawf7r6w4hb7"
-path="res://.godot/imported/arbre2_001.png-80453e2248191482a9ca2e30f2b5eaf1.ctex"
+uid="uid://br4qam4mwvob"
+path="res://.godot/imported/room background.png-f7d0ef9709b57b999b5978372efd913e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/obstacles/arbre2_001.png"
-dest_files=["res://.godot/imported/arbre2_001.png-80453e2248191482a9ca2e30f2b5eaf1.ctex"]
+source_file="res://Assets/2D-art/Envir/room background.png"
+dest_files=["res://.godot/imported/room background.png-f7d0ef9709b57b999b5978372efd913e.ctex"]
 
 [params]
 

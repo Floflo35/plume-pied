@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm7waaxf5l82m"
-path="res://.godot/imported/plume.png-0c7702ab65b44b4de972732060c45f11.ctex"
+uid="uid://c5xvqeephrwv5"
+path="res://.godot/imported/head.png-82d5b052bf1ad4df62b70ae88433951d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/plume.png"
-dest_files=["res://.godot/imported/plume.png-0c7702ab65b44b4de972732060c45f11.ctex"]
+source_file="res://Assets/2D-art/obstacles/head.png"
+dest_files=["res://.godot/imported/head.png-82d5b052bf1ad4df62b70ae88433951d.ctex"]
 
 [params]
 
