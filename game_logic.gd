@@ -5,6 +5,7 @@ signal game_stopped
 signal hit
 signal chatouille
 signal fly
+signal level_changed(level)
 
 const MAX_SCORE = 10.0
 const INITIAL_SCORE = 5.0
@@ -22,6 +23,8 @@ var current_scene = null
 var scene_intro = "res://Scenes/intro.tscn"
 var scene_main = "res://Scenes/main.tscn"
 
+var current_level = 1
+
 func _ready():
 	reset_game()
 	var root = get_tree().root
@@ -35,7 +38,13 @@ func _process(delta):
 		updateScore(-1 * delta * AUTO_DECREASE_SPEED)
 		if Input.is_action_just_pressed("up"):
 			fly.emit()
-			
+		
+		if Input.is_action_just_pressed("1"):
+			change_level(1)
+		
+		if Input.is_action_just_pressed("2"):
+			change_level(2)
+		
 	if state == STATE_GAMEOVER:
 		pass
 
@@ -59,6 +68,7 @@ func reset_game():
 	state = STATE_INTRO
 	score = INITIAL_SCORE
 	goto_scene(scene_intro)
+	change_level(1)
 
 func obstacle_hit(_node):
 	if state == STATE_PLAY:
@@ -69,6 +79,11 @@ func chatouille_hit(_node):
 	if state == STATE_PLAY:
 		chatouille.emit()
 		updateScore(1)
+
+func change_level(level):
+	if state == STATE_PLAY:
+		level_changed.emit(level)
+		current_level = level
 
 # --- 
 func updateScore(delta):
