@@ -24,12 +24,7 @@ func _process(time_delta):
 		$smiley.set_score(current_score)
 
 func clean_ui():
-	#test 1
-	#$AnimationPlayer.play("reset")
-	
-	#test 2
-	$AnimationPlayer.stop()
-	$GameOver.modulate = Color(1,1,1,0)
+	$AnimationPlayer.play("reset")
 
 func game_over():
 	$AnimationPlayer.play("game_over")

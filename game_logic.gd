@@ -7,10 +7,11 @@ signal chatouille
 signal fly
 
 const MAX_SCORE = 10.0
-const INITIAL_SCORE = 5.0
+const INITIAL_SCORE = 1.0
 var score
 
 const AUTO_DECREASE_SPEED = 0.1;
+const DELAY_BEFORE_INTR0 = 5;
 
 var state
 const STATE_INTRO = 'state_intro'
@@ -50,7 +51,7 @@ func end_game():
 	state = STATE_GAMEOVER
 	game_stopped.emit()
 	
-	var timer = get_tree().create_timer(5)  
+	var timer = get_tree().create_timer(DELAY_BEFORE_INTR0)  
 	timer.timeout.connect(reset_game)
 
 func reset_game():
