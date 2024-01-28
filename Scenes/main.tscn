@@ -2,18 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://b5vboh0k8p6ac" path="res://Scenes/plume.tscn" id="1_oud7g"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_pn80t"]
-[ext_resource type="PackedScene" uid="uid://bc2y5gu3pa700" path="res://Scenes/level1.tscn" id="2_uit1h"]
 [ext_resource type="PackedScene" uid="uid://ct404vm523tix" path="res://Scenes/ui.tscn" id="3_bcs3h"]
 [ext_resource type="PackedScene" uid="uid://c5mlxfw3s7a1n" path="res://audio_ui.tscn" id="4_wfom8"]
 [ext_resource type="Script" path="res://Scenes/Camera.gd" id="5_oqok4"]
+[ext_resource type="PackedScene" uid="uid://q1k0lackmgv5" path="res://Scenes/level2.tscn" id="6_mugpc"]
 
 [node name="Main2d" type="Node2D"]
 script = ExtResource("1_pn80t")
 
-[node name="Level1" parent="." instance=ExtResource("2_uit1h")]
-
 [node name="Plume" parent="." instance=ExtResource("1_oud7g")]
-position = Vector2(548, 303)
+position = Vector2(1025, 365)
 
 [node name="Ui" parent="." instance=ExtResource("3_bcs3h")]
 top_level = true
@@ -26,3 +24,5 @@ metadata/_edit_use_anchors_ = true
 offset = Vector2(960, 540)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("5_oqok4")
+
+[node name="BossFight" parent="." instance=ExtResource("6_mugpc")]

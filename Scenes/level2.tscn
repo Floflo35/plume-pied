@@ -1,23 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://q1k0lackmgv5"]
+[gd_scene load_steps=8 format=3 uid="uid://q1k0lackmgv5"]
 
-[ext_resource type="Texture2D" uid="uid://degbnqkqbrnwf" path="res://Assets/2D-art/BossFight/room_background.png" id="1_85sh1"]
 [ext_resource type="Script" path="res://Scenes/BossFight.gd" id="1_30408"]
 [ext_resource type="PackedScene" uid="uid://des1aj0cjht7r" path="res://Scenes/obstacles/Boss.tscn" id="2_72qvt"]
+[ext_resource type="Texture2D" uid="uid://cp7cb6u3ek5yh" path="res://Assets/2D-art/BossFight/BackGround_Dungeon_001.png" id="2_75kus"]
 [ext_resource type="PackedScene" uid="uid://bwm5sat5mcnpy" path="res://mob_spawner_timer.tscn" id="4_7lyls"]
+[ext_resource type="Texture2D" uid="uid://cebkj7phncph5" path="res://Assets/2D-art/BossFight/support_torture_wheel.png" id="4_iwlav"]
+[ext_resource type="AudioStream" uid="uid://ce2dbu2u0adxj" path="res://Assets/Music/Plume Boss.wav" id="5_aedyv"]
+[ext_resource type="AudioStream" uid="uid://ccdi36533i0m6" path="res://Assets/SFX/niveau2Interieur/ambianceInterieur.wav" id="6_cpdqk"]
 
 [node name="BossFight" type="Node2D"]
 script = ExtResource("1_30408")
 
 [node name="RoomBackground" type="Sprite2D" parent="."]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = -1000
-position = Vector2(975, 558)
-scale = Vector2(1.31523, 1.31523)
-texture = ExtResource("1_85sh1")
+position = Vector2(960, 540)
+texture = ExtResource("2_75kus")
 
 [node name="Boss" parent="." instance=ExtResource("2_72qvt")]
-position = Vector2(1084, -320)
+position = Vector2(984, -314)
 scale = Vector2(2.09847, 2.09847)
+
+[node name="SupportSprite" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(996, -279)
+scale = Vector2(2.46282, 2.46282)
+texture = ExtResource("4_iwlav")
 
 [node name="MobSpawnerTimer" parent="." instance=ExtResource("4_7lyls")]
 y_min = 400
 y_max = 1080
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aedyv")
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cpdqk")
