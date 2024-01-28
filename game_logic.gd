@@ -14,7 +14,8 @@ const INITIAL_SCORE = 5.0
 var score
 
 const AUTO_DECREASE_SPEED = 0.1;
-const DELAY_BEFORE_INTR0 = 5;
+const DELAY_GAME_OVER = 5;
+const DELAY_VICTORY = 9;
 
 var state
 const STATE_INTRO = 'state_intro'
@@ -65,7 +66,7 @@ func end_game():
 	state = STATE_PAUSE
 	game_loose.emit()
 	
-	var timer = get_tree().create_timer(DELAY_BEFORE_INTR0)  
+	var timer = get_tree().create_timer(DELAY_GAME_OVER)  
 	timer.timeout.connect(reset_game)
 
 func reset_game():
@@ -80,7 +81,7 @@ func launch_victory():
 	score = MAX_SCORE
 	game_win.emit()
 	
-	var timer = get_tree().create_timer(DELAY_BEFORE_INTR0)  
+	var timer = get_tree().create_timer(DELAY_VICTORY)  
 	timer.timeout.connect(reset_game)
 
 func obstacle_hit(_node):
