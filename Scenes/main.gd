@@ -34,5 +34,6 @@ func _deferred_load_scene_level(path):
 	current_level_scene.free()
 	var s = ResourceLoader.load(path)
 	current_level_scene = s.instantiate()
-	get_tree().root.add_child(current_level_scene)
-	get_tree().current_scene = current_level_scene
+	add_child(current_level_scene)
+	self.move_child(current_level_scene, 0)
+	#get_tree().current_scene = current_level_scene
