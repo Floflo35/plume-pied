@@ -7,6 +7,11 @@ var max_speed = 400
 var is_active = true
 var fly_on_next_physic_frame = false
 
+const MIN_Y = 30
+const MAX_Y = 1080
+const BOUND_ZONE = 50
+const rejection_force = 0.01
+
 func _ready():
 	GameLogic.hit.connect(hit)
 	GameLogic.chatouille.connect(chatouille)
@@ -21,8 +26,18 @@ func _physics_process(delta):
 		fly_on_next_physic_frame = false
 		fly()
 		
-	velocity.y += gravity * delta
-	velocity.y = min(velocity.y , max_speed)
+	var y_delta = gravity * delta
+	var desired_velocity = min(velocity.y + y_delta , max_speed)
+
+	if desired_velocity < 0 && (position.y <= (MIN_Y + BOUND_ZONE)):
+		var rejection_distance = MIN_Y + BOUND_ZONE - position.y
+		desired_velocity = gravity * rejection_distance * rejection_force
+	
+	if desired_velocity > 0 && position.y >= (MAX_Y - BOUND_ZONE):
+		GameLogic.obstacle_hit(self)
+		desired_velocity = 0
+		
+	velocity.y = desired_velocity
 	
 	move_and_collide(velocity * delta)
 
