@@ -14,4 +14,4 @@ position = Vector2(1177, 565)
 texture = ExtResource("2_3nbod")
 
 [node name="Donjon" parent="." instance=ExtResource("3_1w3hb")]
-position = Vector2(4603, 565)
+position = Vector2(5234, 561)

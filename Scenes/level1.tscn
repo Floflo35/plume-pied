@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc2y5gu3pa700"]
+[gd_scene load_steps=9 format=3 uid="uid://bc2y5gu3pa700"]
 
 [ext_resource type="Script" path="res://Scenes/level1.gd" id="1_3ug8i"]
 [ext_resource type="AudioStream" uid="uid://cvi51vmq67wmc" path="res://Assets/SFX/Ambiance/AmbianceExt.wav" id="3_mcxun"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b3jjjb21yu3n8" path="res://arbre_001.tscn" id="7_4aqgj"]
 [ext_resource type="PackedScene" uid="uid://1e8aukd75ks" path="res://Scenes/obstacles/bat.tscn" id="8_lyos1"]
 [ext_resource type="PackedScene" uid="uid://cqixy5bjnl8xc" path="res://ronce.tscn" id="8_pr2s5"]
-[ext_resource type="AudioStream" uid="uid://b2uiy074avcvh" path="res://Assets/Music/Plume_loop.wav" id="9_d5d3g"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_3ug8i")
@@ -26,7 +25,7 @@ scale = Vector2(0.55, 0.55)
 speed = -500
 
 [node name="GiantRunning7" parent="." instance=ExtResource("5_d3xrm")]
-position = Vector2(6483, 1725)
+position = Vector2(6564, 1720)
 scale = Vector2(0.55, 0.55)
 speed = -500
 
@@ -108,6 +107,12 @@ position = Vector2(5005, 95)
 [node name="Bat7" parent="." instance=ExtResource("8_lyos1")]
 position = Vector2(6704, 161)
 
+[node name="Bat8" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(7089, 504)
+
+[node name="Bat9" parent="." instance=ExtResource("8_lyos1")]
+position = Vector2(7180, 267)
+
 [node name="Ronce" parent="." instance=ExtResource("8_pr2s5")]
 position = Vector2(3041, 1047)
 speed = -400
@@ -160,6 +165,10 @@ speed = -400
 position = Vector2(4590, 1198)
 speed = -400
 
+[node name="Ronce18" parent="." instance=ExtResource("8_pr2s5")]
+position = Vector2(6331, 1231)
+speed = -400
+
 [node name="Ronce12" parent="." instance=ExtResource("8_pr2s5")]
 position = Vector2(5143, 905)
 speed = -400
@@ -175,8 +184,3 @@ speed = -400
 [node name="Ronce15" parent="." instance=ExtResource("8_pr2s5")]
 position = Vector2(4128, 1294)
 speed = -400
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_d5d3g")
-volume_db = 3.0
-autoplay = true
