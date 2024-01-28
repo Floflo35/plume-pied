@@ -10,7 +10,7 @@ func _ready():
 	
 	
 func hit():
-	print("SCREENSHAKE")
+	#print("SCREENSHAKE")
 	var timer = get_tree().create_timer(shake_length)
 	screenshake = true
 	timer.timeout.connect(shake_stop)
