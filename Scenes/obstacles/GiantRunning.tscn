@@ -14,11 +14,11 @@
 [ext_resource type="AudioStream" uid="uid://bff7mabukuqfk" path="res://Assets/SFX/PasGeant/pasGeant3.wav" id="10_vc6lu"]
 [ext_resource type="AudioStream" uid="uid://d3xxg7iyrqqxj" path="res://Assets/SFX/PasGeant/pasGeant4.wav" id="11_f76ii"]
 [ext_resource type="AudioStream" uid="uid://bif30wi4xxd1l" path="res://Assets/SFX/RiresGeants/sonGeant1.wav" id="14_wirvw"]
-[ext_resource type="AudioStream" uid="uid://cab48gx0x14cr" path="res://Assets/SFX/RiresGeants/sonGeant2,.wav" id="15_i7boy"]
-[ext_resource type="AudioStream" uid="uid://cq5b1tsjco7h8" path="res://Assets/SFX/RiresGeants/sonGeant3,.wav" id="16_6uh64"]
-[ext_resource type="AudioStream" uid="uid://c7bkppcj1lbid" path="res://Assets/SFX/RiresGeants/sonGeant4,.wav" id="17_gksxj"]
-[ext_resource type="AudioStream" uid="uid://ypft653nerte" path="res://Assets/SFX/RiresGeants/sonGeant5.wav" id="18_d40vy"]
-[ext_resource type="AudioStream" uid="uid://de3xq384xx5sx" path="res://Assets/SFX/RiresGeants/sonGeant7.wav" id="19_l71i3"]
+[ext_resource type="AudioStream" uid="uid://7s2uh4nguhaa" path="res://Assets/SFX/RiresGeants/sonGeant2,.wav" id="15_i7boy"]
+[ext_resource type="AudioStream" uid="uid://dpcgm0s1gf64s" path="res://Assets/SFX/RiresGeants/sonGeant3,.wav" id="16_6uh64"]
+[ext_resource type="AudioStream" uid="uid://cwsy4ivnxds21" path="res://Assets/SFX/RiresGeants/sonGeant4,.wav" id="17_gksxj"]
+[ext_resource type="AudioStream" uid="uid://b4yur5j6w0r6" path="res://Assets/SFX/RiresGeants/sonGeant5.wav" id="18_d40vy"]
+[ext_resource type="AudioStream" uid="uid://bvnwhows12c5n" path="res://Assets/SFX/RiresGeants/sonGeant7.wav" id="19_l71i3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olgp5"]
 animations = [{
@@ -369,7 +369,9 @@ pitch_scale = 0.81
 
 [node name="Rire" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_qqspx")
-volume_db = 9.036
+volume_db = 4.0
+max_distance = 5000.0
+attenuation = 0.267943
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(653, -1173)
