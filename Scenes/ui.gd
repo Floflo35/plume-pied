@@ -5,7 +5,8 @@ var score_inertia = 10
 func _ready():
 	clean_ui()
 	GameLogic.game_started.connect(clean_ui)
-	GameLogic.game_stopped.connect(game_over)
+	GameLogic.game_loose.connect(game_over)
+	GameLogic.game_win.connect(victory)
 
 func _process(time_delta):	
 	var current_score = GameLogic.getPercentageScore()
@@ -28,3 +29,6 @@ func clean_ui():
 
 func game_over():
 	$AnimationPlayer.play("game_over")
+
+func victory():
+	$AnimationPlayer.play("victory")
