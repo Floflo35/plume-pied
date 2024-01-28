@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqixy5bjnl8xc"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/enemy.gd" id="1_unco1"]
-[ext_resource type="Texture2D" path="res://Assets/2D-art/ronce_002.png" id="2_7kykk"]
+[ext_resource type="Texture2D" uid="uid://d1xf4otvintpv" path="res://Assets/obstacles/ronce_002.png" id="2_670mq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_js573"]
 radius = 43.9114
@@ -14,7 +14,7 @@ script = ExtResource("1_unco1")
 speed = -150
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_7kykk")
+texture = ExtResource("2_670mq")
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 collision_layer = 2
