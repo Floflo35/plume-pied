@@ -110,7 +110,8 @@ grow_vertical = 2
 script = ExtResource("1_4gbp6")
 
 [node name="smiley" parent="." instance=ExtResource("3_gj5fx")]
-position = Vector2(134, 956)
+position = Vector2(74, 460)
+scale = Vector2(0.5, 0.5)
 
 [node name="GameOver" type="Control" parent="."]
 layout_mode = 1

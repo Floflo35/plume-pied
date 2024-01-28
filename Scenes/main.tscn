@@ -15,10 +15,12 @@ position = Vector2(548, 303)
 
 [node name="Ui" parent="." instance=ExtResource("3_bcs3h")]
 top_level = true
+scale = Vector2(2, 2)
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioUI" parent="." instance=ExtResource("4_wfom8")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("5_oqok4")
