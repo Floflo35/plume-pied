@@ -7,7 +7,7 @@ signal chatouille
 signal fly
 
 const MAX_SCORE = 10.0
-const INITIAL_SCORE = 1.0
+const INITIAL_SCORE = 5.0
 var score
 
 const AUTO_DECREASE_SPEED = 0.1;
