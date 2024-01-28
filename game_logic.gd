@@ -94,10 +94,9 @@ func chatouille_hit(_node):
 		updateScore(1)
 
 func change_level(level):
-	if state == STATE_PLAY:
-		score = INITIAL_SCORE
-		level_changed.emit(level)
-		current_level = level
+	score = INITIAL_SCORE
+	level_changed.emit(level)
+	current_level = level
 
 # --- 
 func updateScore(delta):
