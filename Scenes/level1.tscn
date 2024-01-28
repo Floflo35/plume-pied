@@ -31,7 +31,6 @@ scale = Vector2(0.55, 0.55)
 speed = -500
 
 [node name="GiantRunning2" parent="." instance=ExtResource("5_d3xrm")]
-modulate = Color(0.192157, 0.482353, 0.133333, 1)
 position = Vector2(2332, 1208)
 scale = Vector2(0.55, 0.55)
 speed = -500
@@ -42,7 +41,6 @@ scale = Vector2(0.55, 0.55)
 speed = -500
 
 [node name="GiantRunning4" parent="." instance=ExtResource("5_d3xrm")]
-modulate = Color(1, 0.737255, 0.258824, 1)
 position = Vector2(4108, 1350)
 scale = Vector2(0.55, 0.55)
 speed = -500
