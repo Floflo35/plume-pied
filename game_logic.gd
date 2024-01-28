@@ -13,7 +13,7 @@ var score
 const AUTO_DECREASE_SPEED = 0.1;
 
 var state
-const STATE_START = 'state_start'
+const STATE_INTRO = 'state_intro'
 const STATE_PLAY = 'state_play'
 const STATE_GAMEOVER = 'state_game_over'
 
@@ -27,9 +27,16 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 func _process(delta):
-	updateScore(-1 * delta * AUTO_DECREASE_SPEED)
-	if Input.is_action_just_pressed("up"):
-		fly.emit()
+	if state == STATE_INTRO:
+		pass
+		
+	if state == STATE_PLAY:
+		updateScore(-1 * delta * AUTO_DECREASE_SPEED)
+		if Input.is_action_just_pressed("up"):
+			fly.emit()
+			
+	if state == STATE_GAMEOVER:
+		pass
 
 # --- events
 func start_game():	
@@ -48,7 +55,7 @@ func end_game():
 
 func reset_game():
 	print("reset_game")
-	state = STATE_START
+	state = STATE_INTRO
 	score = INITIAL_SCORE
 	goto_scene(scene_intro)
 
