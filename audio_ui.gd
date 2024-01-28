@@ -43,6 +43,7 @@ func game_over():
 	
 	
 func win():
-	$Music.stream = win_music
-	$Music.playing = true
+	#$Music.stream = win_music
+	#$Music.playing = true
+	pass
 	

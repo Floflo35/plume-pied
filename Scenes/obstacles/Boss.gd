@@ -18,6 +18,8 @@ func _process(delta):
 	$BossGuy.rotation += delta * rotation_speed
 	if score == 4:
 		GameLogic.launch_victory()
+		$LaughSound.playing = false
+		$VictorySound.playing = true
 
 
 func _on_tickle_0_body_entered(body):
