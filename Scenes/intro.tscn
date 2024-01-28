@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7v66jhfatr6f"]
+[gd_scene load_steps=16 format=3 uid="uid://b7v66jhfatr6f"]
 
 [ext_resource type="Script" path="res://Scenes/intro.gd" id="1_6ye4r"]
 [ext_resource type="Texture2D" uid="uid://br4qam4mwvob" path="res://Assets/2D-art/Envir/room background.png" id="2_cxiuf"]
@@ -7,8 +7,32 @@
 [ext_resource type="FontFile" uid="uid://1vgwjy362gik" path="res://Assets/Fonts/kreaturekombat.ttf" id="4_kna3x"]
 [ext_resource type="Texture2D" uid="uid://ctb1tf8m5hf4" path="res://Assets/2D-art/Géants/Geant_Vener.png" id="5_xgh5y"]
 [ext_resource type="Texture2D" uid="uid://4kw8u8hrtk3l" path="res://Assets/2D-art/Plume/plume_screen_2.png" id="7_6gck0"]
+[ext_resource type="Texture2D" uid="uid://btwd205ksh4j3" path="res://Assets/credits.png" id="7_agwdf"]
+[ext_resource type="Texture2D" uid="uid://d08kicngwy84v" path="res://Assets/Credits_2.png" id="8_413u2"]
 [ext_resource type="Texture2D" uid="uid://bwhjkk67khtcl" path="res://Assets/2D-art/UI/text button.png" id="8_beaqo"]
 [ext_resource type="AudioStream" uid="uid://ccdi36533i0m6" path="res://Assets/SFX/niveau2Interieur/ambianceInterieur.wav" id="9_1cyxv"]
+
+[sub_resource type="Animation" id="Animation_htgf3"]
+resource_name = "breath"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlumeScreen2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(170, 257), Vector2(170, 257), Vector2(170, 257)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hp8rl"]
+_data = {
+"breath": SubResource("Animation_htgf3")
+}
 
 [sub_resource type="Animation" id="Animation_5e080"]
 resource_name = "fade_in"
@@ -130,11 +154,90 @@ text = "ortal        uili"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlumeScreen2" type="Sprite2D" parent="."]
-position = Vector2(207, 292)
+[node name="Credits" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 385.0
+offset_right = 87.0
+offset_bottom = 425.0
+
+[node name="ColorRect2" type="ColorRect" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = -37.0
+offset_top = -42.0
+offset_right = 50.0
+offset_bottom = -13.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="Label" type="Label" parent="Credits/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -11.5
+offset_right = 27.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits
+"
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = -37.0
+offset_top = -5.0
+offset_right = 233.0
+offset_bottom = 155.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="Label2" type="Label" parent="Credits/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -67.5
+offset_right = 124.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "Ezki - 2D Art 
+Floflow - Programmer / Game Design
+Gerry - Sound Design / Level Design
+Kirryu - 2D Art
+Pul - Programmer
+Replicant Flo - Music Composer"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Credits"]
+position = Vector2(103, 65)
+texture = ExtResource("7_agwdf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Credits"]
+position = Vector2(11, -38)
+texture = ExtResource("8_413u2")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PlumeScreen2" type="Sprite2D" parent="Node2D"]
+position = Vector2(170, 313)
 rotation = 2.6529
-scale = Vector2(0.23, 0.23)
+scale = Vector2(0.262806, 0.262806)
 texture = ExtResource("7_6gck0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_hp8rl")
+}
+autoplay = "breath"
 
 [node name="Control2" type="Control" parent="."]
 anchors_preset = 0
@@ -158,48 +261,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "  C'est parti !  "
 
-[node name="Credits" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 47.0
-offset_top = 385.0
-offset_right = 87.0
-offset_bottom = 425.0
-
-[node name="TextButton" type="Sprite2D" parent="Credits"]
-position = Vector2(89, 81)
-scale = Vector2(0.9, 0.535)
-texture = ExtResource("8_beaqo")
-
-[node name="TextButton2" type="Sprite2D" parent="Credits"]
-position = Vector2(28, -34)
-scale = Vector2(0.279, 0.098975)
-texture = ExtResource("8_beaqo")
-
-[node name="Label" type="Label" parent="Credits"]
-layout_mode = 0
-offset_top = -47.0
-offset_right = 55.0
-offset_bottom = -24.0
-text = "Credits
-"
-
-[node name="Label2" type="Label" parent="Credits"]
-layout_mode = 0
-offset_left = -34.0
-offset_top = -61.0
-offset_right = 251.0
-offset_bottom = 222.0
-theme_override_font_sizes/font_size = 14
-text = "Ezki - 2D Art 
-Floflow - Programmer / Game Design
-Gerry - Sound Design / Level Design
-Kirryu - 2D Art
-Pul - Programmer
-Replicant Flo - Music Composer"
-vertical_alignment = 1
-
 [node name="masque" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
