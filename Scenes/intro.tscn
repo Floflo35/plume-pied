@@ -24,9 +24,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
-"values": [Vector2(170, 257), Vector2(170, 257), Vector2(170, 257)]
+"values": [Vector2(170, 257), Vector2(170, 300), Vector2(170, 257)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hp8rl"]
@@ -228,7 +228,7 @@ texture = ExtResource("8_413u2")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="PlumeScreen2" type="Sprite2D" parent="Node2D"]
-position = Vector2(170, 313)
+position = Vector2(170, 300)
 rotation = 2.6529
 scale = Vector2(0.262806, 0.262806)
 texture = ExtResource("7_6gck0")
