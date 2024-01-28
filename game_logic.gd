@@ -3,6 +3,7 @@ extends Node
 signal game_started
 signal game_loose
 signal game_win
+signal game_reset
 signal hit
 signal chatouille
 signal fly
@@ -68,6 +69,7 @@ func end_game():
 	timer.timeout.connect(reset_game)
 
 func reset_game():
+	game_reset.emit()
 	state = STATE_INTRO
 	score = INITIAL_SCORE
 	goto_scene(scene_intro)
@@ -108,6 +110,9 @@ func getScore():
 
 func getPercentageScore():
 	return score / MAX_SCORE;
+
+func is_playing():
+	return state == STATE_PLAY
 
 # ---
 func goto_scene(path):

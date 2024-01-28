@@ -13,21 +13,20 @@ extends Node
 @export var speed_max = -500
 
 func _ready():
-	print("spawner ready")
 	randomizer()
 	
-
+	
 func randomizer():
 	var time = randi_range(timer_min, timer_max)
 	print(time)
 	var timer = get_tree().create_timer(time)
 	timer.timeout.connect(spawn)
 	
-
-
-func spawn():
-	#print("Spawn")
 	
+func spawn():
+	if !GameLogic.is_playing():
+		return
+
 	var mob = mob_scene.instantiate()
 	var reversed = randi_range(0, 1)
 	
@@ -46,3 +45,4 @@ func spawn():
 	
 	add_child(mob)
 	randomizer()
+
