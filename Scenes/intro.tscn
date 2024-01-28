@@ -1,7 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7v66jhfatr6f"]
+[gd_scene load_steps=11 format=3 uid="uid://b7v66jhfatr6f"]
 
 [ext_resource type="Script" path="res://Scenes/intro.gd" id="1_6ye4r"]
-[ext_resource type="Texture2D" uid="uid://dt04u86gef4ni" path="res://Assets/plume_screen.png" id="1_j6xyy"]
+[ext_resource type="Texture2D" uid="uid://br4qam4mwvob" path="res://Assets/2D-art/Envir/room background.png" id="2_cxiuf"]
+[ext_resource type="FontFile" uid="uid://drsrjxpq1ebwa" path="res://Assets/Fonts/ITCBLKAD.TTF" id="3_cbtxr"]
+[ext_resource type="Texture2D" uid="uid://bqogtj6nnbnu5" path="res://Assets/2D-art/Géants/Géant Attaque.png" id="4_4miif"]
+[ext_resource type="FontFile" uid="uid://1vgwjy362gik" path="res://Assets/Fonts/kreaturekombat.ttf" id="4_kna3x"]
+[ext_resource type="Texture2D" uid="uid://ctb1tf8m5hf4" path="res://Assets/2D-art/Géants/Geant_Vener.png" id="5_xgh5y"]
+[ext_resource type="Texture2D" uid="uid://4kw8u8hrtk3l" path="res://Assets/2D-art/Plume/plume_screen_2.png" id="7_6gck0"]
+[ext_resource type="Texture2D" uid="uid://bwhjkk67khtcl" path="res://Assets/2D-art/UI/text button.png" id="8_beaqo"]
+
+[sub_resource type="Animation" id="Animation_5e080"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("masque:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3q8c"]
+_data = {
+"fade_in": SubResource("Animation_5e080")
+}
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -16,23 +42,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ye4r")
 
-[node name="back" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.168627, 0.290196, 0.490196, 1)
+[node name="RoomBackground" type="Sprite2D" parent="."]
+position = Vector2(495, 275)
+scale = Vector2(0.615, 0.615)
+texture = ExtResource("2_cxiuf")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -40.0
-offset_top = 51.0
-offset_right = 960.0
-offset_bottom = 1051.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_j6xyy")
+[node name="subtitle" type="Label" parent="."]
+layout_mode = 2
+offset_left = 337.0
+offset_top = 184.0
+offset_right = 633.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("3_cbtxr")
+theme_override_font_sizes/font_size = 25
+text = "La plume est plus forte que les pieds"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="HFlowContainer" parent="."]
 layout_mode = 1
@@ -49,23 +74,107 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="title" type="Label" parent="Control"]
+[node name="GéantAttaque" type="Sprite2D" parent="."]
+position = Vector2(860, 312)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("4_4miif")
+
+[node name="GeantVener" type="Sprite2D" parent="."]
+position = Vector2(726, 326)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("5_xgh5y")
+
+[node name="Title" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 196.0
+offset_top = 144.0
+offset_right = 236.0
+offset_bottom = 184.0
+
+[node name="G" type="Label" parent="Title"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = -92.0
+offset_right = 606.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("4_kna3x")
+theme_override_font_sizes/font_size = 140
+text = " G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="Label" parent="Title"]
+layout_mode = 0
+offset_left = -137.0
+offset_top = -93.0
+offset_right = 268.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("4_kna3x")
+theme_override_font_sizes/font_size = 140
+text = "M
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title" type="Label" parent="Title"]
 layout_mode = 2
+offset_left = 147.0
+offset_top = -32.0
+offset_right = 583.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("4_kna3x")
 theme_override_font_sizes/font_size = 50
-text = "Mortal Guili"
+text = "ortal        uili"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="subtitle" type="Label" parent="Control"]
-layout_mode = 2
-text = "La plume est plus forte que les pieds"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PlumeScreen2" type="Sprite2D" parent="."]
+position = Vector2(206, 328)
+rotation = 2.6529
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("7_6gck0")
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 438.0
+offset_top = 257.0
+offset_right = 478.0
+offset_bottom = 297.0
+
+[node name="TextButton" type="Sprite2D" parent="Control2"]
+position = Vector2(55, 14)
+scale = Vector2(0.38, 0.1)
+texture = ExtResource("8_beaqo")
+
+[node name="Button" type="Button" parent="Control2"]
 layout_mode = 2
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 111.0
+offset_bottom = 29.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "  C'est parti !  "
 
-[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[node name="masque" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h3q8c")
+}
+autoplay = "fade_in"
+
+[connection signal="button_up" from="Control2/Button" to="." method="_on_button_button_up"]
