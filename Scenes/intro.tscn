@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7v66jhfatr6f"]
+[gd_scene load_steps=11 format=3 uid="uid://b7v66jhfatr6f"]
 
 [ext_resource type="Script" path="res://Scenes/intro.gd" id="1_6ye4r"]
 [ext_resource type="Texture2D" uid="uid://br4qam4mwvob" path="res://Assets/2D-art/Envir/room background.png" id="2_cxiuf"]
@@ -8,6 +8,26 @@
 [ext_resource type="Texture2D" uid="uid://ctb1tf8m5hf4" path="res://Assets/2D-art/Géants/Geant_Vener.png" id="5_xgh5y"]
 [ext_resource type="Texture2D" uid="uid://4kw8u8hrtk3l" path="res://Assets/2D-art/Plume/plume_screen_2.png" id="7_6gck0"]
 [ext_resource type="Texture2D" uid="uid://bwhjkk67khtcl" path="res://Assets/2D-art/UI/text button.png" id="8_beaqo"]
+
+[sub_resource type="Animation" id="Animation_5e080"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("masque:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3q8c"]
+_data = {
+"fade_in": SubResource("Animation_5e080")
+}
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -26,18 +46,6 @@ script = ExtResource("1_6ye4r")
 position = Vector2(495, 275)
 scale = Vector2(0.615, 0.615)
 texture = ExtResource("2_cxiuf")
-
-[node name="back" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.168627, 0.290196, 0.490196, 1)
 
 [node name="subtitle" type="Label" parent="."]
 layout_mode = 2
@@ -147,5 +155,26 @@ offset_bottom = 29.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "  C'est parti !  "
+
+[node name="masque" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h3q8c")
+}
+autoplay = "fade_in"
 
 [connection signal="button_up" from="Control2/Button" to="." method="_on_button_button_up"]
