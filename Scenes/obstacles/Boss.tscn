@@ -31,6 +31,7 @@ texture = ExtResource("2_w7jlm")
 
 [node name="BossGuy" type="Sprite2D" parent="."]
 position = Vector2(0, 24)
+rotation = -3.30042
 scale = Vector2(0.694248, 0.694248)
 texture = ExtResource("3_0bitf")
 offset = Vector2(28.1106, 20.2082)

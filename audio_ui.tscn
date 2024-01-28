@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5mlxfw3s7a1n"]
+[gd_scene load_steps=12 format=3 uid="uid://c5mlxfw3s7a1n"]
 
 [ext_resource type="Script" path="res://audio_ui.gd" id="1_bjcek"]
 [ext_resource type="AudioStream" uid="uid://djqcoykudh1du" path="res://Assets/SFX/Damage.wav" id="1_gsfrk"]
+[ext_resource type="AudioStream" uid="uid://b2uiy074avcvh" path="res://Assets/Music/Plume_loop.wav" id="2_ksrmt"]
 [ext_resource type="AudioStream" uid="uid://c6lysdys82xlb" path="res://Assets/SFX/guili.wav" id="3_4kuoj"]
+[ext_resource type="AudioStream" uid="uid://ce2dbu2u0adxj" path="res://Assets/Music/Plume_Boss.wav" id="3_kxjph"]
 [ext_resource type="AudioStream" uid="uid://buuwo10kcl6kh" path="res://Assets/SFX/Whoosh1.wav" id="4_odrh0"]
 [ext_resource type="AudioStream" uid="uid://kjhufv622ehj" path="res://Assets/SFX/Whoosh2.wav" id="5_1woy5"]
 [ext_resource type="AudioStream" uid="uid://rgng348rk8m6" path="res://Assets/SFX/Whoosh3.wav" id="6_nvx8s"]
@@ -24,6 +26,8 @@ stream_4/weight = 1.0
 
 [node name="AudioUI" type="Node2D"]
 script = ExtResource("1_bjcek")
+lvl_1_music = ExtResource("2_ksrmt")
+lvl_2_music = ExtResource("3_kxjph")
 
 [node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_gsfrk")
@@ -44,3 +48,7 @@ max_distance = 20000.0
 attenuation = 1e-05
 max_polyphony = 3
 panning_strength = 0.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ksrmt")
+autoplay = true
