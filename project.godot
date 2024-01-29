@@ -23,7 +23,9 @@ GameLogic="*res://game_logic.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/stretch/mode="canvas_items"
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -68,3 +70,4 @@ enter={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
